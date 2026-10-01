@@ -186,8 +186,7 @@ def footer(page, lang, projects):
     to_home = "" if page == home else rel(page, home)
     links = [f'<li><a href="{rel(page, local(p["href"], lang))}">{esc(p["name"])}</a></li>'
              for p in projects if p["href"]]
-    links += [f'<li><a href="{to_home}#chi-siamo">{t["about"]}</a></li>',
-              f'<li><a href="{rel(page, local("privacy-sito.html", lang))}">{t["site_privacy"]}</a></li>']
+    links += [f'<li><a href="{to_home}#{anchor}">{label}</a></li>' for anchor, label in t["links"][1:]]
     legal = [(local("privacy-sito.html", lang), t["site_privacy"])]
     legal += [(local(p, lang), label) for p, label in zip(("privacy.html", "termini.html", "elimina-account.html"),
                                                          t["legal_gesteach"])]

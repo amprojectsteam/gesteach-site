@@ -142,7 +142,7 @@ button { font: inherit; }
   display: flex; flex-wrap: wrap; gap: 2px;
   padding: 4px;
   border-radius: 999px;
-  background: rgb(var(--veil) / .55);
+  background: rgb(var(--veil) / .44);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   backdrop-filter: blur(14px) saturate(1.2);
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / .14);
@@ -199,7 +199,7 @@ button { font: inherit; }
   display: inline-flex; align-items: center; gap: 12px;
   padding: 17px 28px;
   border-radius: 999px;
-  background: rgb(var(--veil) / .58);
+  background: rgb(var(--veil) / .46);
   -webkit-backdrop-filter: blur(16px) saturate(1.3);
   backdrop-filter: blur(16px) saturate(1.3);
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / .28), 0 10px 30px rgb(14 26 34 / .18);
@@ -428,7 +428,8 @@ button { font: inherit; }
 
 .feature__panel {
   position: relative; isolation: isolate; overflow: hidden;
-  display: grid; grid-template-rows: auto minmax(0, 1fr); gap: clamp(16px, 2vw, 28px);
+  display: grid; grid-template-rows: auto minmax(0, 1fr); grid-template-columns: minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 28px);
   aspect-ratio: 1;
   padding: clamp(20px, 3.4vw, 54px) clamp(14px, 3vw, 44px) clamp(16px, 3vw, 44px);
   border-radius: 36px;
