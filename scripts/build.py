@@ -132,7 +132,7 @@ def head(page, lang, text):
             f'<meta property="og:title" content="{title}">',
             f'<meta property="og:description" content="{desc}">',
             f'<meta property="og:url" content="{url(page)}">',
-            f'<meta property="og:image" content="{SITE}img/og.png">',
+            f'<meta property="og:image" content="{SITE}img/og.jpg">',
             '<meta property="og:image:width" content="1200">',
             '<meta property="og:image:height" content="630">',
             '<meta property="og:image:alt" content="AM Studio">',
