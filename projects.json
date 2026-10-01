@@ -1,0 +1,5 @@
+[
+{"name": "GesTeach", "icon": "icon.webp", "href": "gesteach.html", "desc": "L'app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.", "desc_en": "The Android app for teachers: planning, lesson diary, grade register and materials.", "status": "Android · TODO: stato", "status_en": "Android · TODO: status"},
+{"name": "TODO: progetto di Mirko", "icon": "", "href": "", "desc": "TODO: descrizione di una riga.", "desc_en": "TODO: one-line description.", "status": "TODO: stato", "status_en": "TODO: status"},
+{"name": "TODO: progetto di Alice", "icon": "", "href": "", "desc": "TODO: descrizione di una riga.", "desc_en": "TODO: one-line description.", "status": "TODO: stato", "status_en": "TODO: status"}
+]
