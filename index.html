@@ -2,36 +2,296 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
+  <title>AM Studio</title>
+  <meta name="description" content="AM Studio è lo studio di Mirko e Alice: progettiamo e sviluppiamo app. La prima è GesTeach, l'app Android per chi insegna.">
+  <!-- @head -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GesTeach</title>
-  <meta name="description" content="GesTeach, l'app per la programmazione, il diario delle lezioni e il registro di un insegnante. Sviluppata da AM Studio.">
+  <link rel="canonical" href="https://amprojectsteam.github.io/gesteach-site/">
+  <link rel="alternate" hreflang="it" href="https://amprojectsteam.github.io/gesteach-site/">
+  <link rel="alternate" hreflang="en" href="https://amprojectsteam.github.io/gesteach-site/en/">
+  <link rel="alternate" hreflang="x-default" href="https://amprojectsteam.github.io/gesteach-site/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AM Studio">
+  <meta property="og:title" content="AM Studio">
+  <meta property="og:description" content="AM Studio è lo studio di Mirko e Alice: progettiamo e sviluppiamo app. La prima è GesTeach, l'app Android per chi insegna.">
+  <meta property="og:url" content="https://amprojectsteam.github.io/gesteach-site/">
+  <meta property="og:image" content="https://amprojectsteam.github.io/gesteach-site/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AM Studio">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#A3B1BA">
+  <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preload" href="fonts/noto-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="icon.webp" type="image/webp">
-  <link rel="alternate" hreflang="en" href="en/index.html">
+  <!-- /@head -->
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="site.js" defer></script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Organization", "name": "AM Studio", "url": "https://amprojectsteam.github.io/gesteach-site/", "sameAs": ["https://github.com/amprojectsteam"]}
+  </script>
 </head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html" aria-current="page">GesTeach</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="termini.html">Termini</a>
-      <a href="elimina-account.html">Elimina account</a>
-      <a class="lang" href="en/index.html" hreflang="en" lang="en">English</a>
+<body class="home">
+  <!-- @header -->
+  <a class="skip" href="#main">Salta al contenuto</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Principale">
+      <a class="brand" href="index.html" aria-label="AM Studio, pagina iniziale"><svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="5.6" fill="none" stroke="currentColor" stroke-width="1.6"/><ellipse cx="16" cy="16" rx="14" ry="6.2" fill="none" stroke="currentColor" stroke-width="1.3" transform="rotate(-24 16 16)"/><circle cx="26.8" cy="9" r="2" fill="currentColor"/></svg><span>AM Studio</span></a>
+      <ul class="pill nav__links">
+        <li><a href="#progetti">Progetti</a></li>
+        <li><a href="#metodo">Come lavoriamo</a></li>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a class="nav__lang" href="en/index.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a></li>
+      </ul>
     </nav>
   </header>
-  <main>
-    <div class="brand">
-      <img src="icon.webp" alt="" width="64" height="64">
-      <h1>GesTeach</h1>
-    </div>
-    <p>GesTeach è un'app Android per gli insegnanti: la programmazione per moduli e argomenti, il diario delle lezioni, il registro con voti e osservazioni, e l'archivio dei materiali, classe per classe.</p>
-    <p>I dati didattici restano sul tuo dispositivo e l'app funziona anche senza rete. L'account serve solo ad accedere e, se lo attivi, a un backup nel cloud cifrato che soltanto tu puoi aprire. Nessuna pubblicità, nessun tracciamento.</p>
-    <ul class="links">
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="termini.html">Termini di Servizio</a></li>
-      <li><a href="elimina-account.html">Eliminare l'account</a></li>
-    </ul>
+  <!-- /@header -->
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="lines" aria-hidden="true"></div>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__stage">
+        <div class="hero__orbit">
+          <div class="specks" aria-hidden="true">
+            <span class="speck" style="--a:200deg;--s:64px;--b:7px"></span>
+            <span class="speck" style="--a:282deg;--s:44px;--b:9px;--k:1.18"></span>
+            <span class="speck" style="--a:330deg;--s:86px;--b:13px;--k:1.5"></span>
+            <span class="speck" style="--a:118deg;--s:52px;--b:10px;--k:1.55"></span>
+            <span class="speck" style="--a:12deg;--s:36px;--b:6px;--k:1.62"></span>
+          </div>
+          <h1 id="hero-title" class="hero__title">AM Studio</h1>
+          <!-- @orbs -->
+        <ul class="orbs" aria-label="Progetti di AM Studio">
+          <li class="orb" style="--a:40deg"><a class="orb__link" href="gesteach.html"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><img src="icon.webp" alt="" width="56" height="56"><span class="orb__name">GesTeach</span></span><span class="orb__desc">L&#x27;app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.</span></a></li>
+          <li class="orb" style="--a:160deg"><span class="orb__link"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">T</span><span class="orb__name">TODO: progetto di Mirko</span></span><span class="orb__desc">TODO: descrizione di una riga.</span></span></li>
+          <li class="orb" style="--a:280deg"><span class="orb__link"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">T</span><span class="orb__name">TODO: progetto di Alice</span></span><span class="orb__desc">TODO: descrizione di una riga.</span></span></li>
+        </ul>
+          <!-- /@orbs -->
+        </div>
+        <a class="glass-pill" href="gesteach.html">GesTeach, l'app per chi insegna <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <!-- TODO: testo da approvare -->
+      <p class="hero__lede">Mirko e Alice. Progettiamo e sviluppiamo app: la prima è GesTeach, per chi insegna.</p>
+      <button class="orbit-toggle" type="button" hidden data-pause="Ferma il movimento" data-play="Riprendi il movimento"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg><span>Ferma il movimento</span></button>
+    </section>
+
+    <section class="stats" aria-labelledby="stats-title">
+      <div class="stats__glass">
+        <h2 id="stats-title" class="sr-only">AM Studio in numeri</h2>
+        <div class="stats__pair">
+          <div class="stat stat--box">
+            <p class="stat__label">Persone</p>
+            <p class="stat__value"><span data-count="2" aria-hidden="true">2</span><span class="sr-only">2</span></p>
+            <p class="stat__unit">nel team</p>
+          </div>
+          <p class="stats__sep" aria-hidden="true">+</p>
+          <div class="stat stat--ring">
+            <svg class="ring" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
+              <circle class="ring__track" cx="110" cy="110" r="96"/>
+              <!-- TODO: frazione vera dell'arco (data-ring e --p) -->
+              <circle class="ring__arc" cx="110" cy="110" r="101.5" pathLength="1" data-ring="0.6" style="--p:.6"/>
+            </svg>
+            <p class="stat__label">Progetti</p>
+            <!-- TODO: numero vero di progetti -->
+            <p class="stat__value"><span class="todo">N</span></p>
+            <p class="stat__unit">attivi</p>
+          </div>
+        </div>
+        <p class="stats__line">Nessun <span class="gold">cookie</span> e nessun <span class="gold">tracker</span> in queste pagine.</p>
+        <p class="stats__sub">Anche i caratteri arrivano da qui, <span class="gold">senza servizi esterni</span>.</p>
+      </div>
+    </section>
+
+    <section class="feature" id="gesteach" aria-labelledby="feature-title" data-views>
+      <div class="lines" aria-hidden="true"></div>
+      <div class="feature__frame">
+        <div class="feature__text">
+          <p class="eyebrow">Progetto in evidenza</p>
+          <h2 id="feature-title">GesTeach, l'app per chi insegna</h2>
+          <div class="acc">
+            <div class="acc__item">
+              <h3><button class="acc__btn" type="button" id="acc-prog" data-key="prog" aria-expanded="true" aria-controls="acc-prog-panel"><span class="acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.6c3-1.1 6-.8 9 1.2 3-2 6-2.3 9-1.2v13c-3-1.1-6-.8-9 1.2-3-2-6-2.3-9-1.2z"/><path d="M12 6.8v13"/></svg></span>Programmazione</button></h3>
+              <div class="acc__panel" id="acc-prog-panel" role="region" aria-labelledby="acc-prog"><p>Moduli e argomenti, con le prove programmate dentro ogni modulo. Le ore si aggiornano da sole con le lezioni del diario.</p></div>
+            </div>
+            <div class="acc__item">
+              <h3><button class="acc__btn" type="button" id="acc-diario" data-key="diario" aria-expanded="true" aria-controls="acc-diario-panel"><span class="acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>Registro lezioni</button></h3>
+              <div class="acc__panel" id="acc-diario-panel" role="region" aria-labelledby="acc-diario"><p>Ogni lezione con data, durata e modulo, in elenco o sul calendario del mese, insieme alle prove e agli imprevisti.</p></div>
+            </div>
+            <div class="acc__item">
+              <h3><button class="acc__btn" type="button" id="acc-registro" data-key="registro" aria-expanded="true" aria-controls="acc-registro-panel"><span class="acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg></span>Registro studenti e voti</button></h3>
+              <div class="acc__panel" id="acc-registro-panel" role="region" aria-labelledby="acc-registro"><p>Voti, medie per quadrimestre e osservazioni, alunno per alunno. Un voto si scrive con due tocchi.</p></div>
+            </div>
+            <div class="acc__item">
+              <h3><button class="acc__btn" type="button" id="acc-materiali" data-key="materiali" aria-expanded="true" aria-controls="acc-materiali-panel"><span class="acc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg></span>Materiali</button></h3>
+              <div class="acc__panel" id="acc-materiali-panel" role="region" aria-labelledby="acc-materiali"><p>Slide, verifiche, griglie, video ed esercizi, in una cartella per modulo. PDF e video si aprono dentro l'app.</p></div>
+            </div>
+          </div>
+          <a class="btn" href="gesteach.html">Scopri GesTeach <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="feature__panel">
+          <div class="tabs" hidden data-label="Aree di GesTeach">
+            <button class="tab" type="button" id="tab-prog" data-key="prog"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.6c3-1.1 6-.8 9 1.2 3-2 6-2.3 9-1.2v13c-3-1.1-6-.8-9 1.2-3-2-6-2.3-9-1.2z"/><path d="M12 6.8v13"/></svg>Programma</button>
+            <button class="tab" type="button" id="tab-diario" data-key="diario"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Diario</button>
+            <button class="tab" type="button" id="tab-registro" data-key="registro"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg>Registro</button>
+            <button class="tab" type="button" id="tab-materiali" data-key="materiali"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></svg>Materiali</button>
+          </div>
+          <div class="screen">
+            <div class="screen__inner" id="gesteach-views">
+              <figure class="shot" data-key="prog">
+                <div class="shot__phone"><img src="img/gt-programma-320.webp" srcset="img/gt-programma-320.webp 320w, img/gt-programma-640.webp 640w" sizes="(min-width: 1024px) 290px, 52vw" width="320" height="504" loading="lazy" decoding="async" alt="Schermata Programma di GesTeach: il modulo Genetica, in corso, con tre prove programmate."></div>
+                <figcaption><span class="shot__big">Le ore si riempiono <span class="gold">da sole</span>.</span><span class="shot__small">Ogni lezione del diario conta sul suo modulo.</span></figcaption>
+              </figure>
+              <figure class="shot" data-key="diario">
+                <div class="shot__phone"><img src="img/gt-diario-320.webp" srcset="img/gt-diario-320.webp 320w, img/gt-diario-640.webp 640w" sizes="(min-width: 1024px) 290px, 52vw" width="320" height="504" loading="lazy" decoding="async" alt="Illustrazione della schermata Diario di GesTeach, ricostruita e non fotografata: tre lezioni di settembre con modulo e ore."></div>
+                <figcaption><span class="shot__big">Lezioni, prove e imprevisti, <span class="gold">sullo stesso mese</span>.</span><span class="shot__small">In elenco o sul calendario.</span></figcaption>
+              </figure>
+              <figure class="shot" data-key="registro">
+                <div class="shot__phone"><img src="img/gt-registro-320.webp" srcset="img/gt-registro-320.webp 320w, img/gt-registro-640.webp 640w" sizes="(min-width: 1024px) 290px, 52vw" width="320" height="504" loading="lazy" decoding="async" alt="Schermata Registro di GesTeach: le schede degli alunni della 3A, ciascuna con la media."></div>
+                <figcaption><span class="shot__big">Un voto in <span class="gold">due tocchi</span>.</span><span class="shot__small">Medie per quadrimestre, osservazioni, voto proposto.</span></figcaption>
+              </figure>
+              <figure class="shot" data-key="materiali">
+                <div class="shot__phone"><img src="img/gt-materiali-320.webp" srcset="img/gt-materiali-320.webp 320w, img/gt-materiali-640.webp 640w" sizes="(min-width: 1024px) 290px, 52vw" width="320" height="504" loading="lazy" decoding="async" alt="Un PDF di slide aperto dentro GesTeach."></div>
+                <figcaption><span class="shot__big">Ogni materiale <span class="gold">al suo posto</span>.</span><span class="shot__small">Una cartella per modulo, aperta dentro l'app.</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="metodo" aria-labelledby="steps-title">
+      <div class="lines lines--cols" aria-hidden="true"></div>
+      <div class="steps__head">
+        <div>
+          <p class="eyebrow">Come lavoriamo</p>
+          <h2 id="steps-title">Tre passi,<br>dall'idea all'app</h2>
+        </div>
+      </div>
+      <!-- TODO: testi dei tre passi da approvare -->
+      <ol class="steps__list">
+        <li class="step step--1">
+          <div class="step__art"><img src="img/step-listen.svg" alt="" width="270" height="270" loading="lazy"></div>
+          <div class="step__text">
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3>Ascoltiamo chi lo userà.</h3>
+            <p>Partiamo dalle giornate di chi userà l'app: cosa deve fare, cosa gli fa perdere tempo, cosa non deve mai succedere ai suoi dati.</p>
+          </div>
+        </li>
+        <li class="step step--2">
+          <div class="step__art"><img src="img/step-build.svg" alt="" width="270" height="270" loading="lazy"></div>
+          <div class="step__text">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3>Costruiamo.</h3>
+            <p>App che funzionano anche senza rete e tengono i dati sul dispositivo. Niente pubblicità, niente tracciamento.</p>
+          </div>
+        </li>
+        <li class="step step--3">
+          <div class="step__art"><img src="img/step-release.svg" alt="" width="270" height="270" loading="lazy"></div>
+          <div class="step__text">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3>Rilasciamo e miglioriamo.</h3>
+            <p>Versioni piccole e frequenti, provate prima di uscire. Ogni segnalazione torna nel lavoro.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="about" id="chi-siamo" aria-labelledby="about-title">
+      <div class="section-head">
+        <p class="eyebrow">Chi siamo</p>
+        <h2 id="about-title">Mirko e Alice</h2>
+      </div>
+      <ul class="people">
+        <li class="person">
+          <!-- TODO: foto -->
+          <div class="person__photo" aria-hidden="true">M</div>
+          <div>
+            <h3>Mirko</h3>
+            <p class="todo">TODO: due righe su Mirko.</p>
+          </div>
+        </li>
+        <li class="person">
+          <!-- TODO: foto -->
+          <div class="person__photo" aria-hidden="true">A</div>
+          <div>
+            <h3>Alice</h3>
+            <p class="todo">TODO: due righe su Alice.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="projects" id="progetti" aria-labelledby="projects-title">
+      <div class="section-head">
+        <p class="eyebrow">Progetti</p>
+        <h2 id="projects-title">Quello che facciamo</h2>
+      </div>
+      <!-- @projects -->
+      <ul class="projects__list">
+        <li class="project">
+          <span class="project__orb"><img src="icon.webp" alt="" width="56" height="56"></span>
+          <h3 class="project__name"><a href="gesteach.html">GesTeach</a></h3>
+          <p class="project__status">Android · TODO: stato</p>
+          <p class="project__desc">L&#x27;app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.</p>
+        </li>
+        <li class="project">
+          <span class="project__orb"><span class="initials" aria-hidden="true">T</span></span>
+          <h3 class="project__name">TODO: progetto di Mirko</h3>
+          <p class="project__status">TODO: stato</p>
+          <p class="project__desc">TODO: descrizione di una riga.</p>
+        </li>
+        <li class="project">
+          <span class="project__orb"><span class="initials" aria-hidden="true">T</span></span>
+          <h3 class="project__name">TODO: progetto di Alice</h3>
+          <p class="project__status">TODO: stato</p>
+          <p class="project__desc">TODO: descrizione di una riga.</p>
+        </li>
+      </ul>
+      <!-- /@projects -->
+    </section>
   </main>
-  <footer>GesTeach è sviluppata da AM Studio · <a href="mailto:am.projects.team@gmail.com">am.projects.team@gmail.com</a></footer>
+  <!-- @footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-contact">
+        <h2 class="footer-title">Un'idea, una domanda?<br>Scriviamoci.</h2>
+        <a class="mail-pill" href="mailto:TODO">
+          <span class="mail-pill__address">TODO: indirizzo di contatto</span>
+          <span class="mail-pill__button">Scrivici</span>
+        </a>
+        <ul class="socials">
+          <li><a href="https://github.com/amprojectsteam" aria-label="AM Studio su GitHub"><svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></li>
+        </ul>
+      </div>
+      <nav class="footer-links" aria-label="Progetti e studio">
+        <ul>
+          <li><a href="gesteach.html">GesTeach</a></li>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="privacy-sito.html">Privacy e cookie del sito</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wordmark" aria-hidden="true">
+      <div class="wordmark__haze wordmark__haze--far"></div>
+      <div class="wordmark__haze"></div>
+      <p class="wordmark__text">AM Studio</p>
+    </div>
+    <div class="footer-legal">
+      <nav aria-label="Note legali">
+        <ul>
+          <li><a href="privacy-sito.html">Privacy e cookie del sito</a></li>
+          <li><a href="privacy.html">Privacy di GesTeach</a></li>
+          <li><a href="termini.html">Termini di GesTeach</a></li>
+          <li><a href="elimina-account.html">Eliminare l'account GesTeach</a></li>
+        </ul>
+      </nav>
+      <p>© 2026 AM Studio</p>
+    </div>
+  </footer>
+  <!-- /@footer -->
 </body>
 </html>
