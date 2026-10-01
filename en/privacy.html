@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — GesTeach</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../icon.webp" type="image/webp">
+  <link rel="alternate" hreflang="it" href="../privacy.html">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">GesTeach</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+      <a class="lang" href="../privacy.html" hreflang="it" lang="it">Italiano</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 1 October 2026</p>
+    <section>
+      <h2>Two kinds of data, in two different places</h2>
+      <p>GesTeach holds two things that have nothing to do with each other. Your teaching data — classes, pupils, grades, lessons, topics, tests, materials and observations — lives on this device, and leaves it only in the two ways you choose: a file you export, or the cloud backup if you turn it on, which leaves encrypted. Your account — an email address, or a Google account — exists on Google's Firebase Authentication servers. It is used to tell your classes apart from someone else's on the same device and, if you turn the cloud backup on, to say whose backup is whose. No teaching data is ever sent to that account, and none is ever sent anywhere in a form that anyone but you can read.</p>
+    </section>
+    <section>
+      <h2>Your teaching data stays on this device</h2>
+      <p>Everything you enter is written to a database inside the app's private storage on this phone or tablet. The app works from that database alone: no server reads it or answers for it, and there is no synchronisation. The app contains no analytics or tracking library of any kind and collects no usage statistics. If the app is uninstalled, that data goes with it — which is why the Data section of the Account page exists.</p>
+    </section>
+    <section>
+      <h2>Data about your pupils</h2>
+      <p>The names, grades, notes and observations you enter are personal data belonging to other people, often minors. GesTeach is a tool you use: under the GDPR you and your school remain responsible for that data, and it is your school's rules that say what may be recorded and for how long. The app helps in three ways and asks nothing else of you — it keeps the data on the device, it never transmits it in a form anyone else can read, and it offers an app lock so that a tablet left on the desk does not show the register to whoever picks it up. Enter only what you need, and prefer initials or first names where a full name is not necessary.</p>
+    </section>
+    <section>
+      <h2>Your account</h2>
+      <p>Sign-in is handled by Firebase Authentication, a Google service. It stores your email address, your password in hashed form (the app never sees the password itself), the display name you chose and, if you sign in with Google, the identifiers Google supplies, together with the dates of your sign-ins. The app reads only the account identifier, which it writes on each class you create so that your classes are yours. Google processes this data under its own privacy policy. Deleting your account from the Account page deletes your cloud backup first, if you have one, then removes the account from Firebase and deletes every class on this device. If the backup cannot be deleted, the account is not deleted either, so no backup is ever left behind without an owner.</p>
+    </section>
+    <section>
+      <h2>Files on this device or in Google Drive (only if you use them)</h2>
+      <p>A material can point at a PDF or a video you pick with the system's file chooser: one on the device, or one in Google Drive or another cloud service whose app appears in that chooser. The app stores a reference to that file, not a copy of it: the file stays where it is and is opened from there. The permission granted is read-only and covers the single file you picked. The app never asks for access to your Drive and cannot see anything in it you did not pick.</p>
+    </section>
+    <section>
+      <h2>Backups and exports</h2>
+      <p>You can export one class as a backup file, or every class at once, or a class's grades as CSV or PDF, and you choose where the file goes — the device, a memory card, or a cloud drive if that is what you pick in the system's file chooser. From that moment the file is yours to look after. A single-class backup holds that class in full. The whole-account backup holds every class and also your teacher card, your photograph among it, and your settings; it is the most sensitive file this app can produce, and nothing creates it but you pressing that row. A backup of either size can be encrypted with a password (AES-256-GCM); the password is stored nowhere, so a forgotten password means an unreadable file and nobody can recover it for you.</p>
+    </section>
+    <section>
+      <h2>Cloud backup (only if you turn it on)</h2>
+      <p>The cloud backup is off until you turn it on in Account › Data. When it is on, it copies what the whole-account backup file holds — every class, your teacher card with its photograph, and your settings — to Cloud Storage for Firebase, a Google service, in a data centre in the European Union. Before anything leaves the device it is encrypted there (AES-256-GCM) with a key that only a secret phrase you choose, or the recovery code shown to you once, can open. The secret phrase is not your sign-in password and is never sent anywhere: Google stores bytes it cannot read, and neither the app's authors nor Google can decrypt them or recover them for you. What the server can see is that a backup exists, which account it belongs to, how large it is and when it was written. A backup runs when you ask for one and, by itself, about once a week while the device is charging on Wi-Fi. This device keeps its own copy of the key in the Android Keystore, so that a backup does not ask for the secret phrase every time; a new device asks for it once. Requests to the backup are checked by Firebase App Check, which uses Google Play Integrity to confirm they come from a genuine copy of the app. If you lose both the secret phrase and the recovery code, the backup is lost. Turning the backup off deletes it from the cloud, and deleting your account deletes it first. Because it is a copy of your pupils' data on a server, check with your school before turning it on.</p>
+    </section>
+    <section>
+      <h2>Android's own backup</h2>
+      <p>Android may copy an app's data to the user's Google account. GesTeach deliberately excludes its database and its settings from that cloud backup: a silent, permanent copy of minors' grades on a server is not something a teacher agreed to — the cloud backup above is the one you turn on yourself, encrypted with a key only you hold. A direct transfer between two of your own devices does include everything, because that is a move rather than a copy left behind.</p>
+    </section>
+    <section>
+      <h2>Notifications</h2>
+      <p>Reminders about a test tomorrow or a deadline a week away are worked out on the device from data already in it, and stay off until you turn them on. Permission to post notifications is asked at that moment and nowhere else; refusing it leaves the setting off.</p>
+    </section>
+    <section>
+      <h2>Security</h2>
+      <p>The app lock, when enabled, asks for your fingerprint or face, or for a 4-digit code of the app's own, when the app is opened, before showing the register. The code is kept on the device only in a scrambled form that cannot be turned back into it (a hash), never as the digits. The lock also hides the app's contents from the recent-apps screen and from screenshots. The database itself is not encrypted, so the device's own screen lock remains the first protection: on a shared tablet, use both.</p>
+    </section>
+    <section>
+      <h2>Children</h2>
+      <p>GesTeach is meant for teachers. Pupils have no account and no access to the app; they appear in it only as entries a teacher has written.</p>
+    </section>
+    <section>
+      <h2>Changes</h2>
+      <p>If this notice changes, the date at the top changes with it. The notice travels inside the app, so an updated one arrives with an update of the app.</p>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <p>GesTeach is developed by AM Studio. For any question about this notice, or to ask for your account to be deleted without using the app, write to <a href="mailto:am.projects.team@gmail.com">am.projects.team@gmail.com</a> from the email address you sign in with: we reply within 30 days. This notice is also published at <a href="https://amprojectsteam.github.io/gesteach-site/en/privacy.html">https://amprojectsteam.github.io/gesteach-site/en/privacy.html</a>.</p>
+    </section>
+  </main>
+  <footer>AM Studio · <a href="mailto:am.projects.team@gmail.com">am.projects.team@gmail.com</a></footer>
+</body>
+</html>
