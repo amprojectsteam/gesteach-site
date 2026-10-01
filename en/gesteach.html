@@ -22,13 +22,18 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="it_IT">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#A3B1BA">
+  <meta name="theme-color" content="#060610">
   <link rel="icon" href="../img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="preload" href="../fonts/noto-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <!-- /@head -->
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="../vendor/gsap.min.js" defer></script>
+  <script src="../vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../vendor/SplitText.min.js" defer></script>
+  <script src="../vendor/lenis.min.js" defer></script>
+  <script src="../site.js" defer></script>
 </head>
 <body class="doc-page">
   <!-- @header -->
@@ -36,15 +41,23 @@
   <header class="site-header">
     <nav class="nav" aria-label="Main">
       <a class="brand" href="index.html" aria-label="AM Studio, home page"><img class="brand__mark" src="../img/logo-am.png" alt="" width="38" height="38"><span>AM Studio</span></a>
-      <ul class="pill nav__links">
-        <li><a href="index.html#progetti">Projects</a></li>
-        <li><a href="index.html#metodo">How we work</a></li>
-        <li><a href="index.html#chi-siamo">About us</a></li>
-        <li><a class="nav__lang" href="../gesteach.html" hreflang="it" lang="it"><span aria-hidden="true">IT</span><span class="sr-only">Italiano</span></a></li>
-      </ul>
+      <button class="nav__toggle" type="button" popovertarget="menu" aria-label="Open the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-menu"/></svg></button>
+      <div class="nav__menu" id="menu" popover>
+        <button class="nav__close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-close"/></svg></button>
+        <ul class="nav__links">
+          <li><a href="gesteach.html" aria-current="page">GesTeach</a></li>
+          <li><a href="index.html#prezzi">Pricing</a></li>
+          <li><a href="index.html#novita">News</a></li>
+          <li><a href="index.html#chi-siamo">About us</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a class="nav__lang" href="../gesteach.html" hreflang="it" lang="it"><span aria-hidden="true">IT</span><span class="sr-only">Italiano</span></a>
+          <a class="btn btn--sm" href="mailto:am.projects.team@gmail.com">Write to us</a>
+        </div>
+      </div>
     </nav>
     <nav class="subnav" aria-label="GesTeach">
-      <ul class="pill">
+      <ul>
         <li><a href="gesteach.html" aria-current="page">GesTeach</a></li>
         <li><a href="privacy.html">Privacy</a></li>
         <li><a href="terms.html">Terms</a></li>
@@ -54,103 +67,132 @@
   </header>
   <!-- /@header -->
   <main id="main">
-    <section class="gt-intro" aria-labelledby="gt-title">
-      <div class="gt-intro__text">
-        <p class="eyebrow">A project by AM Studio</p>
-        <div class="gt-title"><img src="../icon.webp" alt="" width="80" height="80"><h1 id="gt-title">GesTeach</h1></div>
-        <p>GesTeach is an Android app for teachers: planning by modules and topics, a lesson diary, a register of grades and observations, and an archive of materials, class by class.</p>
-        <p>Your teaching data stays on your device and the app works without a network. The account is used only to sign in and, if you turn it on, for an encrypted cloud backup that only you can open. No advertising, no tracking.</p>
-        <ul class="doc-links">
-          <li><a href="privacy.html">Privacy Policy <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-          <li><a href="terms.html">Terms of Service <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-          <li><a href="delete-account.html">Deleting your account <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        </ul>
-      </div>
-      <div class="gt-intro__visual feature__panel">
-        <div class="screen">
-          <div class="screen__inner">
-            <figure class="shot">
-              <div class="shot__phone"><img src="../img/gt-registro-320.webp" srcset="../img/gt-registro-320.webp 320w, ../img/gt-registro-640.webp 640w" sizes="(min-width: 1024px) 290px, 52vw" width="320" height="504" alt="GesTeach's Registry screen, in Italian: the cards of class 3A's pupils, each with its average."></div>
-              <figcaption><span class="shot__big">A grade in <span class="gold">two taps</span>.</span><span class="shot__small">Averages by term, observations, a proposed mark.</span></figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="gt-areas" aria-labelledby="areas-title">
-      <div class="section-head">
-        <p class="eyebrow">The four areas</p>
-        <h2 id="areas-title">One class, four sections</h2>
-      </div>
-      <ul class="areas">
-        <li class="area">
-          <div class="area__img"><img src="../img/gt-programma-320.webp" srcset="../img/gt-programma-320.webp 320w, ../img/gt-programma-640.webp 640w" sizes="(min-width: 1024px) 250px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="GesTeach's Programming screen, in Italian: the Genetics module, in progress, with three scheduled assessments."></div>
-          <div class="area__text">
-            <h3>Programming</h3>
-            <p>Modules and topics, with the scheduled assessments inside each module. The hours update themselves from the lessons in the diary.</p>
-          </div>
-        </li>
-        <li class="area">
-          <div class="area__img"><img src="../img/gt-diario-320.webp" srcset="../img/gt-diario-320.webp 320w, ../img/gt-diario-640.webp 640w" sizes="(min-width: 1024px) 250px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="An illustration of GesTeach's Diary screen, in Italian, redrawn rather than captured: three September lessons with their module and hours."></div>
-          <div class="area__text">
-            <h3>Lesson diary</h3>
-            <p>Every lesson with its date, length and module, as a list or on the month's calendar, together with assessments and unexpected events.</p>
-          </div>
-        </li>
-        <li class="area">
-          <div class="area__img"><img src="../img/gt-registro-320.webp" srcset="../img/gt-registro-320.webp 320w, ../img/gt-registro-640.webp 640w" sizes="(min-width: 1024px) 250px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="GesTeach's Registry screen, in Italian: the cards of class 3A's pupils, each with its average."></div>
-          <div class="area__text">
-            <h3>Pupils and grades</h3>
-            <p>Grades, averages by term and observations, pupil by pupil. A grade takes two taps.</p>
-          </div>
-        </li>
-        <li class="area">
-          <div class="area__img"><img src="../img/gt-materiali-320.webp" srcset="../img/gt-materiali-320.webp 320w, ../img/gt-materiali-640.webp 640w" sizes="(min-width: 1024px) 250px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="A PDF of slides open inside GesTeach."></div>
-          <div class="area__text">
-            <h3>Materials</h3>
-            <p>Slides, tests, rubrics, videos and exercises, in one folder per module. PDFs and videos open inside the app.</p>
-          </div>
-        </li>
+    <section class="page-hero" aria-labelledby="gt-title">
+      <div class="arcs arcs--high" aria-hidden="true"></div>
+      <img class="app-mark" src="../icon.webp" alt="" width="84" height="84">
+      <p class="tag"><span class="tag__label">GesTeach</span> A project by AM Studio</p>
+      <h1 id="gt-title">The app for teachers, <span class="grad">class by class</span></h1>
+      <p class="lede">Planning by modules and topics, a lesson diary, a register of grades and observations, and an archive of materials. Your teaching data stays on your device and the app works without a network. The account is used only to sign in and, if you turn it on, for an encrypted cloud backup that only you can open. No advertising, no tracking.</p>
+      <ul class="doc-links">
+        <li><a href="privacy.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-shield"/></svg>Privacy Policy</a></li>
+        <li><a href="terms.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-register"/></svg>Terms of Service</a></li>
+        <li><a href="delete-account.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cross"/></svg>Deleting your account</a></li>
       </ul>
     </section>
+
+    <div class="wrap rows">
+      <section class="story" aria-labelledby="row-1">
+        <div class="story__visual phone-card" data-reveal="left">
+          <img src="../img/gt-programma-320.webp" srcset="../img/gt-programma-320.webp 320w, ../img/gt-programma-640.webp 640w" sizes="(min-width: 1024px) 300px, 60vw" width="320" height="504" alt="GesTeach's Programming screen, in Italian: the Genetics module, in progress, with three scheduled assessments.">
+        </div>
+        <div class="story__text" data-reveal>
+          <p class="tag"><span class="tag__label">01</span> Programming</p>
+          <h2 id="row-1">Planning, module by module</h2>
+          <p>Modules and topics, with the scheduled assessments inside each module. The hours update themselves from the lessons in the diary.</p>
+          <ul class="dots">
+            <li>A module's start and end, even as just a month</li>
+            <li>Written and oral assessments, each with its date</li>
+            <li>A plan can be copied from one class to another</li>
+          </ul>
+        </div>
+      </section>
+      <section class="story story--flip" aria-labelledby="row-2">
+        <div class="story__text" data-reveal>
+          <p class="tag"><span class="tag__label">02</span> Lesson diary</p>
+          <h2 id="row-2">The diary, as a list or on the month</h2>
+          <p>Every lesson with its date, length and module, as a list or on the month's calendar, together with assessments and unexpected events.</p>
+          <ul class="dots">
+            <li>Each lesson's hours count towards its module</li>
+            <li>Lessons and assessments on the same calendar</li>
+            <li>Unexpected events noted on the right day</li>
+          </ul>
+        </div>
+        <div class="story__visual phone-card" data-reveal="right">
+          <img src="../img/gt-diario-320.webp" srcset="../img/gt-diario-320.webp 320w, ../img/gt-diario-640.webp 640w" sizes="(min-width: 1024px) 300px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="An illustration of GesTeach's Diary screen, in Italian, redrawn rather than captured: three September lessons with their module and hours.">
+        </div>
+      </section>
+      <section class="story" aria-labelledby="row-3">
+        <div class="story__visual phone-card" data-reveal="left">
+          <img src="../img/gt-registro-320.webp" srcset="../img/gt-registro-320.webp 320w, ../img/gt-registro-640.webp 640w" sizes="(min-width: 1024px) 300px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="GesTeach's Registry screen, in Italian: the cards of class 3A's pupils, each with its average.">
+        </div>
+        <div class="story__text" data-reveal>
+          <p class="tag"><span class="tag__label">03</span> Pupils and grades</p>
+          <h2 id="row-3">The register, pupil by pupil</h2>
+          <p>Grades, averages by term and observations, pupil by pupil. A grade takes two taps.</p>
+          <ul class="dots">
+            <li>Averages by term and a proposed mark</li>
+            <li>The list of pupils is imported from a CSV file</li>
+            <li>Grades are exported as CSV or as a printable PDF</li>
+          </ul>
+        </div>
+      </section>
+      <section class="story story--flip" aria-labelledby="row-4">
+        <div class="story__text" data-reveal>
+          <p class="tag"><span class="tag__label">04</span> Materials</p>
+          <h2 id="row-4">Every material in its module's folder</h2>
+          <p>Slides, tests, rubrics, videos and exercises, in one folder per module. PDFs and videos open inside the app.</p>
+          <ul class="dots">
+            <li>Files from the device or from Google Drive, with the system picker</li>
+            <li>Google Docs, Sheets and Slides through their sharing link</li>
+            <li>PDFs and videos open without leaving GesTeach</li>
+          </ul>
+        </div>
+        <div class="story__visual phone-card" data-reveal="right">
+          <img src="../img/gt-materiali-320.webp" srcset="../img/gt-materiali-320.webp 320w, ../img/gt-materiali-640.webp 640w" sizes="(min-width: 1024px) 300px, 60vw" width="320" height="504" loading="lazy" decoding="async" alt="A PDF of slides open inside GesTeach.">
+        </div>
+      </section>
+    </div>
   </main>
   <!-- @footer -->
   <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-contact">
-        <h2 class="footer-title">An idea, a question?<br>Write to us.</h2>
-        <a class="mail-pill" href="mailto:am.projects.team@gmail.com">
-          <span class="mail-pill__address">am.projects.team@gmail.com</span>
-          <span class="mail-pill__button">Write to us</span>
-        </a>
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta__box" data-reveal>
+        <h2 class="cta__title" id="cta-title">An idea, a question? <span class="grad">Write to us.</span></h2>
+        <p>About GesTeach, a new project or just for an opinion: Mirko and Alice will answer you themselves.</p>
+        <a class="btn" href="mailto:am.projects.team@gmail.com"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-mail"/></svg>Write to us</a>
+        <p class="cta__mail">am.projects.team@gmail.com</p>
+      </div>
+    </section>
+    <div class="footer-main wrap">
+      <div class="footer-about">
+        <a class="footer-brand" href="index.html"><img src="../img/logo-am.png" alt="" width="38" height="38">AM Studio</a>
+        <p>We design and build apps. The first is GesTeach, for teachers.</p>
+        <p class="footer-head">Social</p>
         <ul class="socials">
           <li><a href="https://github.com/amprojectsteam" aria-label="AM Studio on GitHub"><svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></li>
         </ul>
       </div>
-      <nav class="footer-links" aria-label="Projects and studio">
-        <ul>
-          <li><a href="gesteach.html">GesTeach</a></li>
-          <li><a href="index.html#metodo">How we work</a></li>
-          <li><a href="index.html#chi-siamo">About us</a></li>
-        </ul>
-      </nav>
+        <nav class="footer-col" aria-labelledby="f-projects">
+          <p class="footer-head" id="f-projects">Projects</p>
+          <ul>
+            <li><a href="gesteach.html">GesTeach</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-labelledby="f-explore">
+          <p class="footer-head" id="f-explore">Explore</p>
+          <ul>
+            <li><a href="index.html#funzioni">Features</a></li>
+            <li><a href="index.html#prezzi">Pricing</a></li>
+            <li><a href="index.html#novita">News</a></li>
+            <li><a href="index.html#chi-siamo">About us</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-labelledby="f-legal">
+          <p class="footer-head" id="f-legal">Legal</p>
+          <ul>
+            <li><a href="site-privacy.html">Site privacy and cookies</a></li>
+            <li><a href="privacy.html">GesTeach privacy</a></li>
+            <li><a href="terms.html">GesTeach terms</a></li>
+            <li><a href="delete-account.html">Deleting a GesTeach account</a></li>
+          </ul>
+        </nav>
     </div>
     <div class="wordmark" aria-hidden="true">
       <div class="wordmark__haze wordmark__haze--far"></div>
       <div class="wordmark__haze"></div>
       <p class="wordmark__text">AM Studio</p>
     </div>
-    <div class="footer-legal">
-      <nav aria-label="Legal">
-        <ul>
-          <li><a href="site-privacy.html">Site privacy and cookies</a></li>
-          <li><a href="privacy.html">GesTeach privacy</a></li>
-          <li><a href="terms.html">GesTeach terms</a></li>
-          <li><a href="delete-account.html">Deleting a GesTeach account</a></li>
-        </ul>
-      </nav>
-      <p>© 2026 AM Studio</p>
-    </div>
+    <p class="footer-bottom">© 2026 AM Studio</p>
   </footer>
   <!-- /@footer -->
 </body>
