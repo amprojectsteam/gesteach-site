@@ -32,7 +32,7 @@
   <script>document.documentElement.classList.add("js")</script>
   <script src="site.js" defer></script>
   <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "Organization", "name": "AM Studio", "url": "https://amprojectsteam.github.io/gesteach-site/", "sameAs": ["https://github.com/amprojectsteam"]}
+  {"@context": "https://schema.org", "@type": "Organization", "name": "AM Studio", "url": "https://amprojectsteam.github.io/gesteach-site/", "email": "am.projects.team@gmail.com", "sameAs": ["https://github.com/amprojectsteam"]}
   </script>
 </head>
 <body class="home">
@@ -40,7 +40,7 @@
   <a class="skip" href="#main">Salta al contenuto</a>
   <header class="site-header">
     <nav class="nav" aria-label="Principale">
-      <a class="brand" href="index.html" aria-label="AM Studio, pagina iniziale"><svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="5.6" fill="none" stroke="currentColor" stroke-width="1.6"/><ellipse cx="16" cy="16" rx="14" ry="6.2" fill="none" stroke="currentColor" stroke-width="1.3" transform="rotate(-24 16 16)"/><circle cx="26.8" cy="9" r="2" fill="currentColor"/></svg><span>AM Studio</span></a>
+      <a class="brand" href="index.html" aria-label="AM Studio, pagina iniziale"><img class="brand__mark" src="img/logo-am.png" alt="" width="38" height="38"><span>AM Studio</span></a>
       <ul class="pill nav__links">
         <li><a href="#progetti">Progetti</a></li>
         <li><a href="#metodo">Come lavoriamo</a></li>
@@ -58,24 +58,21 @@
       <div class="hero__stage">
         <div class="hero__orbit">
           <div class="specks" aria-hidden="true">
-            <span class="speck" style="--a:200deg;--s:64px;--b:7px"></span>
-            <span class="speck" style="--a:282deg;--s:44px;--b:9px;--k:1.18"></span>
-            <span class="speck" style="--a:330deg;--s:86px;--b:13px;--k:1.5"></span>
-            <span class="speck" style="--a:118deg;--s:52px;--b:10px;--k:1.55"></span>
-            <span class="speck" style="--a:12deg;--s:36px;--b:6px;--k:1.62"></span>
+            <span class="speck" style="--a:200deg;--s:96px;--b:6px"></span>
+            <span class="speck" style="--a:282deg;--s:70px;--b:8px;--k:1.18"></span>
+            <span class="speck" style="--a:330deg;--s:124px;--b:11px;--k:1.5"></span>
+            <span class="speck" style="--a:118deg;--s:84px;--b:9px;--k:1.55"></span>
+            <span class="speck" style="--a:12deg;--s:58px;--b:5px;--k:1.62"></span>
           </div>
           <h1 id="hero-title" class="hero__title">AM Studio</h1>
           <!-- @orbs -->
         <ul class="orbs" aria-label="Progetti di AM Studio">
           <li class="orb" style="--a:40deg"><a class="orb__link" href="gesteach.html"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><img src="icon.webp" alt="" width="56" height="56"><span class="orb__name">GesTeach</span></span><span class="orb__desc">L&#x27;app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.</span></a></li>
-          <li class="orb" style="--a:160deg"><span class="orb__link"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">T</span><span class="orb__name">TODO: progetto di Mirko</span></span><span class="orb__desc">TODO: descrizione di una riga.</span></span></li>
-          <li class="orb" style="--a:280deg"><span class="orb__link"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">T</span><span class="orb__name">TODO: progetto di Alice</span></span><span class="orb__desc">TODO: descrizione di una riga.</span></span></li>
         </ul>
           <!-- /@orbs -->
         </div>
         <a class="glass-pill" href="gesteach.html">GesTeach, l'app per chi insegna <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <!-- TODO: testo da approvare -->
       <p class="hero__lede">Mirko e Alice. Progettiamo e sviluppiamo app: la prima è GesTeach, per chi insegna.</p>
     </section>
 
@@ -90,15 +87,15 @@
           </div>
           <p class="stats__sep" aria-hidden="true">+</p>
           <div class="stat stat--ring">
+            <!-- @ring -->
             <svg class="ring" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
               <circle class="ring__track" cx="110" cy="110" r="96"/>
-              <!-- TODO: frazione vera dell'arco (data-ring e --p) -->
-              <circle class="ring__arc" cx="110" cy="110" r="101.5" pathLength="1" data-ring="0.6" style="--p:.6"/>
+              <circle class="ring__arc" cx="110" cy="110" r="101.5" pathLength="1" data-ring="1" style="--p:1"/>
             </svg>
             <p class="stat__label">Progetti</p>
-            <!-- TODO: numero vero di progetti -->
-            <p class="stat__value"><span class="todo">N</span></p>
-            <p class="stat__unit">attivi</p>
+            <p class="stat__value"><span data-count="1" aria-hidden="true">1</span><span class="sr-only">1</span></p>
+            <p class="stat__unit">attivo su 1</p>
+            <!-- /@ring -->
           </div>
         </div>
         <p class="stats__line">Nessun <span class="gold">cookie</span> e nessun <span class="gold">tracker</span> in queste pagine.</p>
@@ -171,7 +168,6 @@
           <h2 id="steps-title">Tre passi,<br>dall'idea all'app</h2>
         </div>
       </div>
-      <!-- TODO: testi dei tre passi da approvare -->
       <ol class="steps__list">
         <li class="step step--1">
           <div class="step__art"><img src="img/step-listen.svg" alt="" width="270" height="270" loading="lazy"></div>
@@ -207,19 +203,15 @@
       </div>
       <ul class="people">
         <li class="person">
-          <!-- TODO: foto -->
           <div class="person__photo" aria-hidden="true">M</div>
           <div>
             <h3>Mirko</h3>
-            <p class="todo">TODO: due righe su Mirko.</p>
           </div>
         </li>
         <li class="person">
-          <!-- TODO: foto -->
           <div class="person__photo" aria-hidden="true">A</div>
           <div>
             <h3>Alice</h3>
-            <p class="todo">TODO: due righe su Alice.</p>
           </div>
         </li>
       </ul>
@@ -235,20 +227,8 @@
         <li class="project">
           <span class="project__orb"><img src="icon.webp" alt="" width="56" height="56"></span>
           <h3 class="project__name"><a href="gesteach.html">GesTeach</a></h3>
-          <p class="project__status">Android · TODO: stato</p>
+          <p class="project__status">Android</p>
           <p class="project__desc">L&#x27;app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.</p>
-        </li>
-        <li class="project">
-          <span class="project__orb"><span class="initials" aria-hidden="true">T</span></span>
-          <h3 class="project__name">TODO: progetto di Mirko</h3>
-          <p class="project__status">TODO: stato</p>
-          <p class="project__desc">TODO: descrizione di una riga.</p>
-        </li>
-        <li class="project">
-          <span class="project__orb"><span class="initials" aria-hidden="true">T</span></span>
-          <h3 class="project__name">TODO: progetto di Alice</h3>
-          <p class="project__status">TODO: stato</p>
-          <p class="project__desc">TODO: descrizione di una riga.</p>
         </li>
       </ul>
       <!-- /@projects -->
@@ -259,8 +239,8 @@
     <div class="footer-top">
       <div class="footer-contact">
         <h2 class="footer-title">Un'idea, una domanda?<br>Scriviamoci.</h2>
-        <a class="mail-pill" href="mailto:TODO">
-          <span class="mail-pill__address">TODO: indirizzo di contatto</span>
+        <a class="mail-pill" href="mailto:am.projects.team@gmail.com">
+          <span class="mail-pill__address">am.projects.team@gmail.com</span>
           <span class="mail-pill__button">Scrivici</span>
         </a>
         <ul class="socials">

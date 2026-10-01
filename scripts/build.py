@@ -7,6 +7,7 @@ rewrites what lies between them, leaving the rest of the page as it is:
     header    skip link, navigation, language switch, the GesTeach sub-navigation
     footer    contact, project links, the wordmark band, legal links
     orbs      the project spheres around the title of the home
+    ring      the projects ring of the home: active projects out of all of them
     projects  the project cards at the bottom of the home
 
 Projects come from projects.json, one per line: adding a project is adding a line there and
@@ -26,7 +27,7 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://amprojectsteam.github.io/gesteach-site/"
-CONTACT = ""  # TODO: indirizzo pubblico di contatto dell'organizzazione
+CONTACT = "am.projects.team@gmail.com"
 
 # Italian page -> English page, in sitemap order. A new page is added here.
 PAIRS = [
@@ -48,8 +49,8 @@ TEXT = {
         "switch": ("EN", "English", "en"),
         "sub": ["GesTeach", "Privacy", "Termini", "Elimina account"],
         "orbs": "Progetti di AM Studio",
-        "talk": "Un'idea, una domanda?<br>Scriviamoci.",  # TODO: testo da approvare
-        "write": "Scrivici", "no_contact": "TODO: indirizzo di contatto",
+        "talk": "Un'idea, una domanda?<br>Scriviamoci.",
+        "write": "Scrivici",
         "github": "AM Studio su GitHub", "footer_nav": "Progetti e studio",
         "about": "Chi siamo", "site_privacy": "Privacy e cookie del sito", "legal": "Note legali",
         "legal_gesteach": ["Privacy di GesTeach", "Termini di GesTeach", "Eliminare l'account GesTeach"],
@@ -61,18 +62,14 @@ TEXT = {
         "switch": ("IT", "Italiano", "it"),
         "sub": ["GesTeach", "Privacy", "Terms", "Delete account"],
         "orbs": "AM Studio projects",
-        "talk": "An idea, a question?<br>Write to us.",  # TODO: testo da approvare
-        "write": "Write to us", "no_contact": "TODO: contact address",
+        "talk": "An idea, a question?<br>Write to us.",
+        "write": "Write to us",
         "github": "AM Studio on GitHub", "footer_nav": "Projects and studio",
         "about": "About us", "site_privacy": "Site privacy and cookies", "legal": "Legal",
         "legal_gesteach": ["GesTeach privacy", "GesTeach terms", "Deleting a GesTeach account"],
     },
 }
 
-MARK = ('<svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">'
-        '<circle cx="16" cy="16" r="5.6" fill="none" stroke="currentColor" stroke-width="1.6"/>'
-        '<ellipse cx="16" cy="16" rx="14" ry="6.2" fill="none" stroke="currentColor" stroke-width="1.3" '
-        'transform="rotate(-24 16 16)"/><circle cx="26.8" cy="9" r="2" fill="currentColor"/></svg>')
 GITHUB = ('<svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" '
           'd="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 '
           '0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 '
@@ -164,7 +161,8 @@ def header(page, lang):
         f'  <a class="skip" href="#main">{t["skip"]}</a>',
         '  <header class="site-header">',
         f'    <nav class="nav" aria-label="{t["nav"]}">',
-        f'      <a class="brand" href="{rel(page, home)}" aria-label="{t["home"]}">{MARK}<span>AM Studio</span></a>',
+        f'      <a class="brand" href="{rel(page, home)}" aria-label="{t["home"]}">'
+        f'<img class="brand__mark" src="{rel(page, "img/logo-am.png")}" alt="" width="38" height="38"><span>AM Studio</span></a>',
         '      <ul class="pill nav__links">',
         *("        " + item for item in items),
         '      </ul>',
@@ -195,8 +193,8 @@ def footer(page, lang, projects):
         '    <div class="footer-top">',
         '      <div class="footer-contact">',
         f'        <h2 class="footer-title">{t["talk"]}</h2>',
-        f'        <a class="mail-pill" href="mailto:{CONTACT or "TODO"}">',
-        f'          <span class="mail-pill__address">{esc(CONTACT) or t["no_contact"]}</span>',
+        f'        <a class="mail-pill" href="mailto:{CONTACT}">',
+        f'          <span class="mail-pill__address">{CONTACT}</span>',
         f'          <span class="mail-pill__button">{t["write"]}</span>',
         '        </a>',
         '        <ul class="socials">',
@@ -238,6 +236,23 @@ def orbs(page, lang, projects):
         out.append(f'          <li class="orb" style="--a:{angle:g}deg">{link}</li>')
     out.append('        </ul>')
     return "\n".join(out)
+
+
+def ring(lang, projects):
+    total = len(projects)
+    active = sum(1 for p in projects if p.get("active"))
+    share = active / total if total else 0
+    unit = f"{'attivo' if active == 1 else 'attivi'} su {total}" if lang == "it" else f"active of {total}"
+    return "\n".join([
+        '            <svg class="ring" viewBox="0 0 220 220" aria-hidden="true" focusable="false">',
+        '              <circle class="ring__track" cx="110" cy="110" r="96"/>',
+        f'              <circle class="ring__arc" cx="110" cy="110" r="101.5" pathLength="1" data-ring="{share:g}" style="--p:{share:g}"/>',
+        '            </svg>',
+        f'            <p class="stat__label">{"Progetti" if lang == "it" else "Projects"}</p>',
+        f'            <p class="stat__value"><span data-count="{active}" aria-hidden="true">{active}</span>'
+        f'<span class="sr-only">{active}</span></p>',
+        f'            <p class="stat__unit">{unit}</p>',
+    ])
 
 
 def project_cards(page, lang, projects):
@@ -289,6 +304,7 @@ def main():
                            ("header", lambda: header(page, lang)),
                            ("footer", lambda: footer(page, lang, projects)),
                            ("orbs", lambda: orbs(page, lang, projects)),
+                           ("ring", lambda: ring(lang, projects)),
                            ("projects", lambda: project_cards(page, lang, projects))):
             if f"<!-- @{name} -->" in text:
                 text = fill(text, name, body())
