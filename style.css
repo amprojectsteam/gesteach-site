@@ -262,57 +262,54 @@ main { overflow-x: clip; }
 }
 .hero__hint { position: relative; z-index: 4; color: var(--text-3); font-size: .9375rem; letter-spacing: .02em; }
 
-/* project spheres: an ellipse around the logo, written as angles by build.py and frozen there
+/* project logos: an ellipse around the AM logo, written as angles by build.py and frozen there
    when nothing moves; site.js turns the angles once motion is allowed */
-.orbs, .specks { position: absolute; inset: 0; pointer-events: none; }
-.orb, .speck {
+.orbs { position: absolute; inset: 0; pointer-events: none; }
+.orb {
   --z: sin(var(--a));
   position: absolute;
   left: 50%; top: 50%;
-  left: calc(50% + cos(var(--a)) * var(--rx) * var(--k, 1));
-  top: calc(50% + sin(var(--a)) * var(--ry) * var(--k, 1));
+  left: calc(50% + cos(var(--a)) * var(--rx));
+  top: calc(50% + sin(var(--a)) * var(--ry));
   translate: -50% -50%;
-}
-.orb {
-  width: clamp(92px, 9.6vw, 150px); aspect-ratio: 1;
+  width: clamp(64px, 6.4vw, 96px); aspect-ratio: 1;
   scale: calc(.9 + .16 * var(--z));
   z-index: 3;
   pointer-events: auto;
 }
-.is-live .orb, .is-live .speck { left: 50%; top: 50%; scale: none; }
+.is-live .orb { left: 50%; top: 50%; scale: none; }
 .orb__link {
   position: relative; display: block; width: 100%; height: 100%;
   padding: 0; border: 0; border-radius: 50%;
   background: none; color: #fff; text-decoration: none; font: inherit; cursor: pointer;
   transition: scale .45s var(--ease);
 }
-.orb__body, .orb__haze {
-  position: absolute; inset: 0;
-  border-radius: 50%;
-  background: url("img/cells.svg") center / cover, var(--glass);
-  box-shadow: var(--glass-shadow);
-}
+/* the logo itself goes round; behind the AM logo it gives way to a blurred copy of itself */
+.orb__body, .orb__haze { position: absolute; inset: 0; }
 .orb__haze { filter: blur(9px); opacity: 0; }
-.orb__body {
-  display: grid; place-content: center; justify-items: center; gap: 6px;
-  padding: 12%;
-  text-align: center;
+.orb img { display: block; }
+.orb img, .orb .initials {
+  width: 100%; height: 100%;
+  filter: drop-shadow(0 6px 18px rgb(0 0 0 / .5)) drop-shadow(0 0 26px rgb(var(--accent-rgb) / .35));
 }
-.orb__body img, .orb__body .initials {
-  width: 42%; height: auto; aspect-ratio: 1; border-radius: 50%;
-  box-shadow: 0 4px 14px rgb(0 0 0 / .45);
+.initials {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--label); box-shadow: inset 0 0 0 1px var(--line);
+  font: 500 clamp(1.25rem, 2vw, 2rem)/1 var(--font);
 }
-.initials { display: grid; place-items: center; background: var(--label); font: 500 clamp(1.25rem, 2vw, 2rem)/1 var(--font); }
-/* the name sits on a small chip, so it reads whatever the sphere passes over */
+/* the name sits on a small chip under the logo, so it reads whatever the logo passes over */
 .orb__name {
-  max-width: 12ch; padding: 4px 10px;
+  position: absolute; left: 50%; top: calc(100% + 8px);
+  translate: -50% 0;
+  padding: 4px 10px;
   border-radius: 999px;
   background: rgb(14 11 38 / .78);
   font: 600 clamp(.75rem, .9vw, .9375rem)/1.2 var(--font);
-  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 .orb__desc {
-  position: absolute; left: 50%; top: calc(100% + 10px);
+  position: absolute; left: 50%; top: calc(100% + 44px);
   translate: -50% 6px;
   width: max-content; max-width: 250px;
   padding: 10px 14px; border-radius: 12px;
@@ -326,17 +323,6 @@ main { overflow-x: clip; }
 .orb__link:hover .orb__desc, .orb__link:focus-visible .orb__desc, .orb__link.is-told .orb__desc { opacity: 1; translate: -50% 0; }
 .orb:hover, .orb:focus-within { z-index: 10 !important; }
 .orb__link:focus-visible { border-radius: 50%; }
-/* decorative spheres further out, already out of focus */
-.speck {
-  --k: 1.3;
-  width: var(--s, 70px); aspect-ratio: 1;
-  border-radius: 50%;
-  background: url("img/cells.svg") center / cover, var(--glass);
-  box-shadow: var(--glass-shadow);
-  filter: blur(var(--b, 6px));
-  opacity: .55;
-  z-index: 1;
-}
 
 /* moving content needs a way to stop it (WCAG 2.2.2): one switch for orbits, strip and spinning rings */
 .motion-toggle {
@@ -911,14 +897,13 @@ html:not(.js) .float-nav { display: none; }
 @media (max-width: 719px) {
   body { font-size: 1rem; }
   /* a phone is upright, so its ellipse is too: narrow and tall, clear of the logo at the sides.
-     ponytail: about eight 92px spheres fit round it; past that, smaller spheres or a second ring */
+     ponytail: about ten 60px logos fit round it; past that, smaller logos or a second ring */
   .hero { --rx: 33vw; --ry: min(46vw, 25svh); }
   .hero__stage { padding-block: calc(var(--ry) + 56px); }
   .particles { top: 260px; width: 60vw; }
-  .orb { width: 92px; }
-  .orb__body { padding: 8%; }
-  .orb__name { padding: 3px 8px; font-size: .6875rem; white-space: nowrap; }
-  .orb__desc { max-width: 200px; }
+  .orb { width: 60px; }
+  .orb__name { padding: 3px 8px; font-size: .6875rem; }
+  .orb__desc { top: calc(100% + 38px); max-width: 200px; }
   .showcase__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .showcase__item:nth-child(n) { margin-top: 0; }
   .strip__title::before, .strip__title::after { display: none; }

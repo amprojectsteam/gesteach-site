@@ -7,8 +7,8 @@ rewrites what lies between them, leaving the rest of the page as it is:
     header        skip link, navigation, language switch, the GesTeach sub-navigation
     footer        the "write to us" box, then on the home one thin line (privacy, GitHub) and on
                   every other page the footer columns, the wordmark band and the legal links
-    orbs          the project spheres around the logo of the home; a project with no page yet is
-                  a sphere that answers "we're working on it"
+    orbs          the project logos orbiting the logo of the home; a project with no page yet is
+                  a logo that answers "we're working on it"
     testimonials  the quotes of the GesTeach page; empty, and so absent, while there are none
 
 Projects come from projects.json and quotes from testimonials.json, one per line: adding one is
@@ -290,10 +290,10 @@ def orbs(page, lang, projects):
     for i, p in enumerate(projects):
         angle = (40 + i * 360 / len(projects)) % 360
         name = p.get("name_en", p["name"]) if lang == "en" else p["name"]
-        inner = (f'<span class="orb__haze" aria-hidden="true"></span>'
+        inner = (f'<span class="orb__haze" aria-hidden="true">{face(page, p)}</span>'
                  f'<span class="orb__body">{face(page, p)}<span class="orb__name">{esc(name)}</span></span>'
                  f'<span class="orb__desc">{esc(p["desc_en" if lang == "en" else "desc"])}</span>')
-        # a project with no page yet is still a sphere: a click has it say so (site.js)
+        # a project with no page yet still goes round: a click has it say so (site.js)
         link_ = (f'<a class="orb__link" href="{rel(page, local(p["href"], lang))}">{inner}</a>' if p["href"]
                  else f'<button class="orb__link" type="button" data-told="{esc(t["soon"])}">{inner}</button>')
         out.append(f'          <li class="orb" style="--a:{angle:g}deg">{link_}</li>')

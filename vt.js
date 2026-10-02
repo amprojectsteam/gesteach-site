@@ -54,7 +54,7 @@
     root.classList.add("is-zooming"); // site.js: the orbit stops turning
     const orb = link.closest(".orb");
     const timing = { duration: 500, easing: "ease-in-out", fill: "forwards" };
-    played = [...document.querySelectorAll(".site-header, .hero__mark, .hero__hint, .particles, .speck, .orb, .orb__desc, .motion-toggle")]
+    played = [...document.querySelectorAll(".site-header, .hero__mark, .hero__hint, .particles, .orb, .orb__desc, .motion-toggle")]
       .filter((el) => el !== orb)
       .map((el) => el.animate({ opacity: 0 }, timing));
     played.push(link.animate({ scale: 1.5 }, timing));

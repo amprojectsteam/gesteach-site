@@ -34,7 +34,7 @@
     for (const section of links.keys()) if (section) io.observe(section);
   }
 
-  /* ---- a sphere whose project has no page yet says so, in its bubble and to a screen reader ---- */
+  /* ---- a project with no page yet says so, in its bubble and to a screen reader ---- */
 
   const status = document.querySelector("[data-orb-status]");
   for (const soon of document.querySelectorAll(".orb__link[data-told]")) {
@@ -101,7 +101,7 @@
     });
   }
 
-  /* ---- project spheres orbiting the logo, on a phone as well ---- */
+  /* ---- project logos orbiting the AM logo, on a phone as well ---- */
 
   const stage = hero && hero.querySelector(".hero__stage");
   const toggle = document.querySelector(".motion-toggle");
@@ -109,18 +109,13 @@
   if (stage) [startOrbit, stopOrbit] = orbit();
 
   function orbit() {
-    const bodies = [...stage.querySelectorAll(".orb, .speck")].map((el) => {
-      const speck = el.classList.contains("speck");
-      return {
-        el, speck,
-        a: parseFloat(el.style.getPropertyValue("--a")) * Math.PI / 180,
-        k: speck ? parseFloat(getComputedStyle(el).getPropertyValue("--k")) || 1.3 : 1,
-        w: speck ? 0.035 : 0.06, // radians a second: one turn in under two minutes
-        body: el.querySelector(".orb__body"),
-        haze: el.querySelector(".orb__haze"),
-      };
-    });
-    const held = new Set(); // spheres under the pointer or the keyboard focus stay where they are
+    const bodies = [...stage.querySelectorAll(".orb")].map((el) => ({
+      el,
+      a: parseFloat(el.style.getPropertyValue("--a")) * Math.PI / 180,
+      body: el.querySelector(".orb__body"),
+      haze: el.querySelector(".orb__haze"),
+    }));
+    const held = new Set(); // logos under the pointer or the keyboard focus stay where they are
     let rx = 0, ry = 0, px = 0, py = 0, tx = 0, ty = 0, last = 0, running = false, visible = true;
 
     const measure = () => {
@@ -130,7 +125,7 @@
     };
     measure();
     addEventListener("resize", measure);
-    // one frame in place before going live: "is-live" alone stacks every sphere on the logo, and
+    // one frame in place before going live: "is-live" alone stacks every logo on the AM one, and
     // vt.js may measure one before the first animation frame comes
     last = performance.now();
     frame(last);
@@ -142,14 +137,14 @@
       px += (tx - px) * 0.05;
       py += (ty - py) * 0.05;
       for (const b of bodies) {
-        // vt.js: a sphere opening into its page, or a page closing into it, stays where it is
-        if (!held.size && !root.classList.contains("is-zooming")) b.a += b.w * dt;
+        // vt.js: a logo opening into its page, or a page closing into it, stays where it is
+        // 0.06 radians a second: one turn in under two minutes
+        if (!held.size && !root.classList.contains("is-zooming")) b.a += 0.06 * dt;
         const z = Math.sin(b.a); // -1 behind the logo, 1 in front of it
         const k = (z + 1) / 2;
-        const x = Math.cos(b.a) * rx * b.k - px * (12 + 40 * k);
-        const y = z * ry * b.k - py * (8 + 24 * k);
+        const x = Math.cos(b.a) * rx - px * (12 + 40 * k);
+        const y = z * ry - py * (8 + 24 * k);
         b.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${(0.72 + 0.4 * k).toFixed(3)})`;
-        if (b.speck) continue;
         b.el.style.zIndex = z > 0 ? 3 : 1;
         b.body.style.opacity = (0.3 + 0.7 * k).toFixed(3);
         b.haze.style.opacity = (1 - k).toFixed(3);
@@ -165,7 +160,6 @@
     const stop = () => { running = false; };
 
     for (const b of bodies) {
-      if (b.speck) continue;
       b.el.addEventListener("pointerenter", () => held.add(b.el));
       b.el.addEventListener("pointerleave", () => held.delete(b.el));
       b.el.addEventListener("focusin", () => held.add(b.el));
