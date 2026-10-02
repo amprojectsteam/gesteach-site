@@ -1,3 +1,6 @@
 [
-{"name": "GesTeach", "icon": "icon.webp", "href": "gesteach.html", "active": true, "desc": "L'app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.", "desc_en": "The Android app for teachers: planning, lesson diary, grade register and materials.", "status": "Android", "status_en": "Android"}
+{"name": "GesTeach", "icon": "icon.webp", "href": "gesteach.html", "active": true, "desc": "L'app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.", "desc_en": "The Android app for teachers: planning, lesson diary, grade register and materials.", "status": "Android", "status_en": "Android"},
+{"name": "Progetto 02", "name_en": "Project 02", "mark": "02", "icon": "", "href": "", "desc": "In arrivo", "desc_en": "Coming soon"},
+{"name": "Progetto 03", "name_en": "Project 03", "mark": "03", "icon": "", "href": "", "desc": "In arrivo", "desc_en": "Coming soon"},
+{"name": "Progetto 04", "name_en": "Project 04", "mark": "04", "icon": "", "href": "", "desc": "In arrivo", "desc_en": "Coming soon"}
 ]

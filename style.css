@@ -236,51 +236,33 @@ main { overflow-x: clip; }
 
 /* ---------- hero ---------- */
 
+/* the home is a showcase: the studio's mark with the projects turning around it, the whole first screen */
 .hero {
+  /* the ellipse the spheres run on; site.js reads it as pixels */
+  --rx: min(36vw, 560px);
+  --ry: min(13vw, 21svh);
   position: relative; isolation: isolate;
-  padding: clamp(56px, 7vw, 110px) var(--gx) clamp(32px, 4vw, 56px);
+  display: grid; align-content: center; justify-items: center;
+  min-height: calc(100svh - 90px);
+  padding: 24px var(--gx) 32px;
   text-align: center;
 }
 .particles {
   position: absolute; left: 0; top: clamp(320px, 38vw, 560px); z-index: -1;
   width: min(420px, 42vw); pointer-events: none;
 }
-.hero__stage {
-  --rx: min(40vw, 640px);
-  --ry: min(13vw, 20svh);
-  position: relative;
-  display: grid; justify-items: center;
+/* the spheres are positioned, so the stage keeps room for the ellipse itself */
+.hero__stage { position: relative; display: grid; justify-items: center; padding-block: calc(var(--ry) + 80px); }
+.hero__orbit { position: relative; display: grid; justify-items: center; }
+/* above the spheres even when one passes in front */
+.hero__mark { position: relative; z-index: 4; }
+.hero__mark img {
+  width: clamp(96px, 9vw, 128px);
+  filter: drop-shadow(0 0 24px rgb(255 255 255 / .3)) drop-shadow(0 0 70px rgb(var(--accent-rgb) / .75));
 }
-.hero__orbit { position: relative; display: grid; justify-items: center; gap: 24px; }
-/* above the spheres even when one passes in front: the title must always read */
-.hero__title {
-  position: relative; z-index: 4;
-  max-width: 22ch;
-  font-size: var(--h1); font-weight: 600; line-height: 1.16; letter-spacing: -.03em;
-}
-.hero__title .grad { display: block; }
-.hero__lede {
-  position: relative; z-index: 4;
-  max-width: 560px; margin: 26px auto 0;
-  color: #fff; font-size: 1.1875rem; line-height: 1.6;
-}
-.hero__cta {
-  position: relative; z-index: 4;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-  margin-top: clamp(40px, 5vw, 64px); padding: 14px;
-}
-/* the little lit grid behind Varko's sign-up field */
-.hero__cta::before {
-  content: ""; position: absolute; z-index: -1; left: 50%; top: 50%;
-  width: 300px; height: 150px; translate: -50% -50%;
-  background:
-    radial-gradient(closest-side, rgb(var(--accent-rgb) / .55), transparent),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px) -1px 0 / 50px 100%,
-    linear-gradient(var(--line) 1px, transparent 1px) 0 -1px / 100% 50px;
-  border: 1px solid var(--line);
-}
+.hero__hint { position: relative; z-index: 4; color: var(--text-3); font-size: .9375rem; letter-spacing: .02em; }
 
-/* project spheres: an ellipse around the title, written as angles by build.py and frozen there
+/* project spheres: an ellipse around the logo, written as angles by build.py and frozen there
    when nothing moves; site.js turns the angles once motion is allowed */
 .orbs, .specks { position: absolute; inset: 0; pointer-events: none; }
 .orb, .speck {
@@ -300,8 +282,8 @@ main { overflow-x: clip; }
 .is-live .orb, .is-live .speck { left: 50%; top: 50%; scale: none; }
 .orb__link {
   position: relative; display: block; width: 100%; height: 100%;
-  border-radius: 50%;
-  color: #fff; text-decoration: none;
+  padding: 0; border: 0; border-radius: 50%;
+  background: none; color: #fff; text-decoration: none; font: inherit; cursor: pointer;
   transition: scale .45s var(--ease);
 }
 .orb__body, .orb__haze {
@@ -341,7 +323,7 @@ main { overflow-x: clip; }
   transition: opacity .25s, translate .25s var(--ease);
 }
 .orb__link:hover, .orb__link:focus-visible { scale: 1.16; }
-.orb__link:hover .orb__desc, .orb__link:focus-visible .orb__desc { opacity: 1; translate: -50% 0; }
+.orb__link:hover .orb__desc, .orb__link:focus-visible .orb__desc, .orb__link.is-told .orb__desc { opacity: 1; translate: -50% 0; }
 .orb:hover, .orb:focus-within { z-index: 10 !important; }
 .orb__link:focus-visible { border-radius: 50%; }
 /* decorative spheres further out, already out of focus */
@@ -794,6 +776,9 @@ html:not(.js) .float-nav { display: none; }
   transform-origin: 4% 60%;
 }
 .footer-bottom { position: relative; padding: 26px var(--gx) 34px; text-align: center; color: #fff; }
+.footer-bottom a { color: var(--text-2); text-decoration: none; }
+.footer-bottom a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.site-footer--slim .footer-bottom { margin-top: clamp(40px, 5vw, 72px); }
 .footer-bottom::before {
   content: ""; position: absolute; left: 15%; right: 15%; bottom: -120px; height: 240px; z-index: -1;
   background: radial-gradient(closest-side, rgb(var(--accent-rgb) / .38), transparent);
@@ -809,6 +794,16 @@ html:not(.js) .float-nav { display: none; }
 }
 .page-hero h1 { max-width: 17ch; font-size: var(--h1); font-weight: 600; line-height: 1.16; letter-spacing: -.03em; }
 .page-hero .lede { color: #fff; }
+/* back to the spheres; vt.js closes the page into its sphere on the way */
+.back {
+  position: absolute; left: var(--gx); top: 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 14px 9px 10px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: rgb(255 255 255 / .02); color: #fff; text-decoration: none; font-weight: 500;
+}
+.back:hover { background: rgb(255 255 255 / .06); }
+.back .ico { width: 18px; height: 18px; rotate: 180deg; color: var(--accent-2); }
 .app-mark { width: 84px; height: 84px; border-radius: 22px; box-shadow: 0 0 44px rgb(var(--accent-rgb) / .45); }
 .doc-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
 .doc-links a {
@@ -892,6 +887,7 @@ html:not(.js) .float-nav { display: none; }
   .apps__row li { width: 58px; height: 58px; }
   .apps__row .ico { width: 26px; height: 26px; }
   .nav { min-height: 76px; }
+  .hero { min-height: calc(100svh - 76px); }
   .nav__toggle { display: grid; }
   .nav__menu:not(:popover-open) { display: none; }
   .nav__menu:popover-open {
@@ -914,18 +910,15 @@ html:not(.js) .float-nav { display: none; }
 }
 @media (max-width: 719px) {
   body { font-size: 1rem; }
-  .hero { padding-top: 48px; }
+  /* a phone is upright, so its ellipse is too: narrow and tall, clear of the logo at the sides.
+     ponytail: about eight 92px spheres fit round it; past that, smaller spheres or a second ring */
+  .hero { --rx: 33vw; --ry: min(46vw, 25svh); }
+  .hero__stage { padding-block: calc(var(--ry) + 56px); }
   .particles { top: 260px; width: 60vw; }
-  /* on a phone the spheres stand still in a row under the title, a little off-level for depth:
-     an ellipse cannot hold an unknown number of them clear of the title and the buttons */
-  .hero__orbit { gap: 20px; }
-  .orbs { position: relative; inset: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; }
-  .orb { position: relative; left: auto; top: auto; translate: none; scale: none; width: 96px; }
-  .orb:nth-child(3n + 2) { translate: 0 16px; }
-  .orb:nth-child(3n) { translate: 0 -8px; scale: .92; }
-  .orb__name { font-size: .75rem; }
-  .specks { display: none; }
-  .hero__lede { font-size: 1.0625rem; }
+  .orb { width: 92px; }
+  .orb__body { padding: 8%; }
+  .orb__name { padding: 3px 8px; font-size: .6875rem; white-space: nowrap; }
+  .orb__desc { max-width: 200px; }
   .showcase__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .showcase__item:nth-child(n) { margin-top: 0; }
   .strip__title::before, .strip__title::after { display: none; }

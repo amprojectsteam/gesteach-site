@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="style.css">
   <!-- /@head -->
   <script>document.documentElement.classList.add("js")</script>
+  <link rel="expect" href="#scegli" blocking="render">
+  <script src="vt.js"></script>
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
   <script src="vendor/SplitText.min.js" defer></script>
@@ -48,9 +50,7 @@
       <div class="nav__menu" id="menu" popover>
         <button class="nav__close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi il menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-close"/></svg></button>
         <ul class="nav__links">
-          <li><a href="gesteach.html">GesTeach</a></li>
-          <li><a href="#prezzi">Prezzi</a></li>
-          <li><a href="#novita">Novità</a></li>
+          <li><a href="#progetti">Progetti</a></li>
           <li><a href="#chi-siamo">Chi siamo</a></li>
         </ul>
         <div class="nav__actions">
@@ -62,7 +62,7 @@
   </header>
   <!-- /@header -->
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="progetti" aria-labelledby="hero-title">
       <img class="particles" src="img/particles.svg" alt="" width="420" height="120">
       <div class="hero__stage">
         <div class="hero__orbit">
@@ -73,302 +73,20 @@
             <span class="speck" style="--a:118deg;--s:84px;--b:9px;--k:1.55"></span>
             <span class="speck" style="--a:12deg;--s:58px;--b:5px;--k:1.62"></span>
           </div>
-          <p class="tag"><span class="tag__label">AM Studio</span> Studio indipendente di app</p>
-          <h1 id="hero-title" class="hero__title">Costruiamo app utili, <span class="grad">a partire da chi insegna</span></h1>
+          <h1 id="hero-title" class="hero__mark"><img src="img/logo-am.png" alt="AM Studio" width="112" height="112"></h1>
           <!-- @orbs -->
         <ul class="orbs" aria-label="Progetti di AM Studio">
           <li class="orb" style="--a:40deg"><a class="orb__link" href="gesteach.html"><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><img src="icon.webp" alt="" width="56" height="56"><span class="orb__name">GesTeach</span></span><span class="orb__desc">L&#x27;app Android per chi insegna: programmazione, diario delle lezioni, registro dei voti e materiali.</span></a></li>
+          <li class="orb" style="--a:130deg"><button class="orb__link" type="button" data-told="Ci stiamo lavorando."><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">02</span><span class="orb__name">Progetto 02</span></span><span class="orb__desc">In arrivo</span></button></li>
+          <li class="orb" style="--a:220deg"><button class="orb__link" type="button" data-told="Ci stiamo lavorando."><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">03</span><span class="orb__name">Progetto 03</span></span><span class="orb__desc">In arrivo</span></button></li>
+          <li class="orb" style="--a:310deg"><button class="orb__link" type="button" data-told="Ci stiamo lavorando."><span class="orb__haze" aria-hidden="true"></span><span class="orb__body"><span class="initials" aria-hidden="true">04</span><span class="orb__name">Progetto 04</span></span><span class="orb__desc">In arrivo</span></button></li>
         </ul>
+        <p class="sr-only" role="status" data-orb-status></p>
           <!-- /@orbs -->
         </div>
       </div>
-      <p class="hero__lede">Siamo Mirko e Alice. La nostra prima app è GesTeach: programmazione, diario, registro e materiali di ogni classe, in tasca e anche senza rete.</p>
-      <div class="hero__cta">
-        <a class="btn" href="gesteach.html">Scopri GesTeach <svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-arrow"/></svg></a>
-        <a class="btn btn--ghost" href="mailto:am.projects.team@gmail.com">Scrivici</a>
-      </div>
+      <p class="hero__hint" id="scegli">Scegli un progetto</p>
       <button class="motion-toggle" type="button" hidden data-pause="Ferma il movimento" data-play="Riprendi il movimento"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg><span>Ferma il movimento</span></button>
-    </section>
-
-    <section class="showcase" aria-label="Le quattro sezioni di GesTeach">
-      <ul class="showcase__list">
-        <li class="showcase__item"><img src="img/gt-programma-320.webp" srcset="img/gt-programma-320.webp 320w, img/gt-programma-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="Schermata Programma di GesTeach: il modulo Genetica, in corso, con tre prove programmate."></li>
-        <li class="showcase__item"><img src="img/gt-diario-320.webp" srcset="img/gt-diario-320.webp 320w, img/gt-diario-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="Illustrazione della schermata Diario di GesTeach, ricostruita e non fotografata: tre lezioni di settembre con modulo e ore."></li>
-        <li class="showcase__item"><img src="img/gt-registro-320.webp" srcset="img/gt-registro-320.webp 320w, img/gt-registro-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="Schermata Registro di GesTeach: le schede degli alunni della 3A, ciascuna con la media."></li>
-        <li class="showcase__item"><img src="img/gt-materiali-320.webp" srcset="img/gt-materiali-320.webp 320w, img/gt-materiali-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="Un PDF di slide aperto dentro GesTeach."></li>
-      </ul>
-    </section>
-
-    <section class="strip" aria-labelledby="strip-title">
-      <div class="arcs arcs--low" aria-hidden="true"></div>
-      <h2 id="strip-title" class="strip__title">Nessun cookie e nessun tracker, nemmeno in queste pagine</h2>
-      <div class="strip__track">
-        <ul class="strip__list">
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-offline"/></svg>Funziona offline</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-device"/></svg>Dati sul dispositivo</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-shield"/></svg>Nessun tracker</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cloud-lock"/></svg>Backup cifrato</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-no-ads"/></svg>Nessuna pubblicità</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-lock"/></svg>Blocco dell'app</li>
-          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-globe"/></svg>Italiano e inglese</li>
-        </ul>
-        <ul class="strip__list" aria-hidden="true">
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-offline"/></svg>Funziona offline</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-device"/></svg>Dati sul dispositivo</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-shield"/></svg>Nessun tracker</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-cloud-lock"/></svg>Backup cifrato</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-no-ads"/></svg>Nessuna pubblicità</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-lock"/></svg>Blocco dell'app</li>
-          <li><svg class="ico" focusable="false"><use href="img/icons.svg#i-globe"/></svg>Italiano e inglese</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="funzioni" aria-labelledby="funzioni-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">Funzioni</span> Una classe, quattro sezioni</p>
-          <h2 id="funzioni-title">Tutto quello che serve a una classe, anche senza rete</h2>
-          <p class="lede">Programmazione, diario, registro e materiali di ogni classe in un'unica app Android, per il telefono e per il tablet.</p>
-        </div>
-        <ul class="bento">
-          <li class="card" data-reveal>
-            <div class="art art--orbit" aria-hidden="true">
-              <span class="ring-icon ring-icon--core"><svg class="ico"><use href="img/icons.svg#i-book"/></svg></span>
-              <span class="ring-icon ring-icon--sat" style="--a:-90deg"><svg class="ico"><use href="img/icons.svg#i-list"/></svg></span>
-              <span class="ring-icon ring-icon--sat" style="--a:-18deg"><svg class="ico"><use href="img/icons.svg#i-test"/></svg></span>
-              <span class="ring-icon ring-icon--sat" style="--a:54deg"><svg class="ico"><use href="img/icons.svg#i-chart"/></svg></span>
-              <span class="ring-icon ring-icon--sat" style="--a:126deg"><svg class="ico"><use href="img/icons.svg#i-copy"/></svg></span>
-              <span class="ring-icon ring-icon--sat" style="--a:198deg"><svg class="ico"><use href="img/icons.svg#i-clock"/></svg></span>
-            </div>
-            <div>
-              <h3>Programmazione</h3>
-              <p>Moduli e argomenti, con le prove programmate dentro ogni modulo. Le ore si aggiornano da sole con le lezioni del diario.</p>
-            </div>
-          </li>
-          <li class="card" data-reveal>
-            <div class="art" aria-hidden="true">
-              <div class="gauge">
-                <svg viewBox="0 0 240 132">
-                  <defs><linearGradient id="gauge-fill" x1="0" x2="1"><stop offset="0" stop-color="#6d5cd8"/><stop offset="1" stop-color="#b7a2fc"/></linearGradient></defs>
-                  <path d="M24 120a96 96 0 0 1 192 0" fill="none" stroke="rgb(255 255 255 / .08)" stroke-width="22"/>
-                  <path d="M24 120a96 96 0 0 1 192 0" fill="none" stroke="url(#gauge-fill)" stroke-width="22" pathLength="100" stroke-dasharray="75 100"/>
-                  <g class="gauge__needle" style="transform-origin:120px 120px;rotate:45deg">
-                    <path d="M120 120V44" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-                  </g>
-                  <circle cx="120" cy="120" r="11" fill="#16132e" stroke="#b7a2fc" stroke-width="3"/>
-                </svg>
-                <p class="gauge__value">7,5<small>media del primo quadrimestre</small></p>
-              </div>
-            </div>
-            <div>
-              <h3>Registro e voti</h3>
-              <p>Voti, medie per quadrimestre e osservazioni, alunno per alunno. Un voto si scrive con due tocchi.</p>
-            </div>
-          </li>
-          <li class="card" data-reveal>
-            <div class="art" aria-hidden="true">
-              <div class="cal">
-                <p class="cal__head">Ottobre <span>lezioni e prove</span></p>
-                <p class="cal__grid"><span class="d">L</span><span class="d">M</span><span class="d">M</span><span class="d">G</span><span class="d">V</span><span class="d">S</span><span class="d">D</span><span></span><span></span><span></span><span class="l">1</span><span>2</span><span>3</span><span>4</span><span class="l">5</span><span>6</span><span class="l">7</span><span class="l">8</span><span>9</span><span>10</span><span>11</span><span class="l">12</span><span class="e">13</span><span class="t">14</span><span class="l">15</span><span>16</span><span>17</span><span>18</span><span class="l">19</span><span>20</span><span class="l">21</span><span class="l">22</span><span>23</span><span>24</span><span>25</span><span class="l">26</span><span>27</span><span class="t">28</span><span class="l">29</span><span>30</span><span>31</span></p>
-              </div>
-            </div>
-            <div>
-              <h3>Diario delle lezioni</h3>
-              <p>Ogni lezione con data, durata e modulo, in elenco o sul calendario del mese, insieme alle prove e agli imprevisti.</p>
-            </div>
-          </li>
-          <li class="card" data-reveal>
-            <div class="art" aria-hidden="true">
-              <div class="win">
-                <div class="win__bar"><i></i><i></i><i></i><span></span></div>
-                <div class="win__body">
-                  <ul class="win__side">
-                    <li class="is-on"><svg class="ico"><use href="img/icons.svg#i-folder"/></svg>Modulo 1</li>
-                    <li><svg class="ico"><use href="img/icons.svg#i-folder"/></svg>Modulo 2</li>
-                    <li><svg class="ico"><use href="img/icons.svg#i-folder"/></svg>Modulo 3</li>
-                  </ul>
-                  <ul class="win__files">
-                    <li><b>PDF</b>Slide della lezione</li>
-                    <li><b>Video</b>Esperimento in laboratorio</li>
-                    <li><b>Link</b>Esercizi su Documenti Google</li>
-                    <li><b>PDF</b>Griglia di valutazione</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3>Materiali</h3>
-              <p>Slide, verifiche, griglie, video ed esercizi, in una cartella per modulo. PDF e video si aprono dentro l'app.</p>
-            </div>
-          </li>
-          <li class="card" data-reveal>
-            <div class="art art--cloud" aria-hidden="true">
-              <div class="cloud">
-                <svg class="cloud__shape" viewBox="0 0 340 148" preserveAspectRatio="none"><path d="M60 146h220c28 0 50-18 50-42s-20-40-44-42c-6-34-36-58-74-58-30 0-56 16-68 40-8-4-17-6-26-6-30 0-54 22-56 50C40 92 16 104 16 124c0 14 18 22 44 22z" fill="rgb(255 255 255 / .05)" stroke="rgb(255 255 255 / .16)"/></svg>
-                <span><svg class="ico"><use href="img/icons.svg#i-lock"/></svg>Backup cifrato</span>
-              </div>
-              <ul class="cloud__nodes">
-                <li class="ring-icon"><svg class="ico"><use href="img/icons.svg#i-device"/></svg></li>
-                <li class="ring-icon"><svg class="ico"><use href="img/icons.svg#i-key"/></svg></li>
-                <li class="ring-icon"><svg class="ico"><use href="img/icons.svg#i-tablet"/></svg></li>
-              </ul>
-            </div>
-            <div>
-              <h3>Backup cifrato, se lo vuoi</h3>
-              <p>Un backup nel cloud facoltativo, cifrato sul tuo dispositivo con una frase segreta prima di partire: lo puoi aprire soltanto tu.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="perche" aria-labelledby="perche-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">Perché GesTeach</span> I tuoi dati restano tuoi</p>
-          <h2 id="perche-title">Pensata per la scuola, a cominciare dai dati</h2>
-          <p class="lede">Nomi, voti e osservazioni sono spesso di minorenni: GesTeach li tiene sul dispositivo e non li manda mai a nessuno in una forma che altri possano leggere.</p>
-        </div>
-        <ul class="cards">
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-offline"/></svg></span><h3>Funziona offline</h3><p>Lezioni, voti e materiali si consultano e si scrivono anche senza rete.</p></li>
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-device"/></svg></span><h3>I dati restano sul dispositivo</h3><p>Classi, alunni e voti non passano dai nostri server, e non c'è nessuna sincronizzazione.</p></li>
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cloud-lock"/></svg></span><h3>Backup cifrato, se lo vuoi</h3><p>Il backup nel cloud è facoltativo e parte già cifrato: soltanto tu puoi aprirlo.</p></li>
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-lock"/></svg></span><h3>Blocco dell'app</h3><p>Impronta, volto o un codice: un tablet lasciato sulla cattedra non mostra il registro a chi lo raccoglie.</p></li>
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-download"/></svg></span><h3>Esporti quando vuoi</h3><p>I voti in CSV o in un PDF da stampare, e le classi in un file di backup che tieni tu.</p></li>
-          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-shield"/></svg></span><h3>Nessun tracker</h3><p>Nessuna pubblicità e nessuna libreria di analisi o di tracciamento dentro l'app.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="strumenti-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">In GesTeach</span> Dalla prima ora allo scrutinio</p>
-          <h2 id="strumenti-title">Diciassette strumenti, una sola app</h2>
-          <p class="lede">Dai moduli al voto proposto, dal calendario ai promemoria, dal blocco dell'app al backup: tutto in un posto, classe per classe.</p>
-        </div>
-      </div>
-      <div class="apps" data-reveal>
-        <ul class="apps__row">
-          <li data-label="Moduli e argomenti"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-book"/></svg><span class="sr-only">Moduli e argomenti</span></li>
-          <li data-label="Prove programmate"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-test"/></svg><span class="sr-only">Prove programmate</span></li>
-          <li data-label="Ore per modulo"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-clock"/></svg><span class="sr-only">Ore per modulo</span></li>
-          <li data-label="Diario delle lezioni"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-pen"/></svg><span class="sr-only">Diario delle lezioni</span></li>
-          <li data-label="Calendario del mese"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-calendar"/></svg><span class="sr-only">Calendario del mese</span></li>
-          <li data-label="Imprevisti"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-alert"/></svg><span class="sr-only">Imprevisti</span></li>
-          <li data-label="Voti in due tocchi"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-grade"/></svg><span class="sr-only">Voti in due tocchi</span></li>
-          <li data-label="Medie per quadrimestre"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-chart"/></svg><span class="sr-only">Medie per quadrimestre</span></li>
-          <li data-label="Osservazioni"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-note"/></svg><span class="sr-only">Osservazioni</span></li>
-          <li data-label="Voto proposto"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-target"/></svg><span class="sr-only">Voto proposto</span></li>
-        </ul>
-        <ul class="apps__row">
-          <li data-label="Cartelle per modulo"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-folder"/></svg><span class="sr-only">Cartelle per modulo</span></li>
-          <li data-label="PDF e video nell'app"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-play"/></svg><span class="sr-only">PDF e video nell'app</span></li>
-          <li data-label="Promemoria"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-bell"/></svg><span class="sr-only">Promemoria</span></li>
-          <li data-label="Blocco dell'app"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-lock"/></svg><span class="sr-only">Blocco dell'app</span></li>
-          <li data-label="Backup cifrato"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cloud-lock"/></svg><span class="sr-only">Backup cifrato</span></li>
-          <li data-label="Export in CSV e PDF"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-download"/></svg><span class="sr-only">Export in CSV e PDF</span></li>
-          <li data-label="Italiano e inglese"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-globe"/></svg><span class="sr-only">Italiano e inglese</span></li>
-        </ul>
-        <div class="arcs arcs--low" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <section class="section pricing" id="prezzi" aria-labelledby="prezzi-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">Prezzi</span> Semplici e chiari</p>
-          <h2 id="prezzi-title">Tutte le funzioni, in entrambi i piani</h2>
-          <p class="lede">Si comincia con 14 giorni di prova gratuita. Poi scegli tu: mese per mese, o un anno intero con il 30% in meno.</p>
-        </div>
-        <fieldset class="billing" data-reveal>
-          <legend class="sr-only">Come pagare GesTeach</legend>
-          <input type="radio" name="billing" id="bill-m" checked><label for="bill-m">Mensile</label>
-          <span class="switch" aria-hidden="true"><label class="switch__to-y" for="bill-y"></label><label class="switch__to-m" for="bill-m"></label></span>
-          <input type="radio" name="billing" id="bill-y"><label for="bill-y">Annuale</label>
-          <span class="save">−30%</span>
-        </fieldset>
-        <ul class="plans">
-          <li class="card plan" data-reveal>
-            <svg class="plan__icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-spark"/></svg>
-            <h3>Prova gratuita</h3>
-            <p class="plan__for">Per vedere se fa per te</p>
-            <p class="price">0 € <small>per 14 giorni</small></p>
-            <a class="btn" href="gesteach.html">Scopri GesTeach</a>
-            <p class="plan__none"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cross"/></svg>Nessuna pubblicità</p>
-            <ul class="plan__list">
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Tutte le funzioni, per 14 giorni</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Programmazione, diario, registro e materiali</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Funziona anche senza rete</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Dopo la prova i tuoi dati si possono sempre esportare</li>
-            </ul>
-          </li>
-          <li class="card plan" data-reveal>
-            <svg class="plan__icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-book"/></svg>
-            <h3>GesTeach</h3>
-            <p class="plan__for" data-bill="m">Mese per mese</p>
-            <p class="plan__for" data-bill="y">Per tutto l'anno scolastico</p>
-            <p class="price" data-bill="m">2,99 € <small>al mese</small></p>
-            <p class="price" data-bill="y">24,99 € <small>all'anno, circa 2,08 € al mese</small></p>
-            <a class="btn" href="gesteach.html">Scopri GesTeach</a>
-            <p class="plan__none"><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cross"/></svg>Nessuna pubblicità</p>
-            <ul class="plan__list">
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Tutte le funzioni</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Backup nel cloud cifrato, facoltativo</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Voti in CSV e in PDF</li>
-              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>Blocco dell'app con impronta, volto o codice</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="pricing__note">Prezzi validi all'uscita di GesTeach sul Play Store.</p>
-      </div>
-    </section>
-
-    <!-- @testimonials -->
-    <!-- /@testimonials -->
-
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">FAQ</span> Domande e risposte</p>
-          <h2 id="faq-title">Domande frequenti</h2>
-        </div>
-        <div class="card soon" data-reveal>
-          <p class="soon__title">Sezione in arrivo</p>
-          <p>Nel frattempo, per qualsiasi domanda <a href="mailto:am.projects.team@gmail.com">scrivici</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="novita" aria-labelledby="novita-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="tag"><span class="tag__label">Novità</span> Le ultime versioni</p>
-          <h2 id="novita-title">Cosa cambia in GesTeach</h2>
-          <p class="lede">Versioni piccole e frequenti, provate prima di uscire. Ecco le ultime.</p>
-        </div>
-        <ul class="posts">
-          <li class="post" data-reveal>
-            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="img/icons.svg#i-folder"/></svg><span class="post__version">1.9.1</span></div>
-            <p class="post__meta"><span>Materiali</span><span>1 ottobre 2026</span></p>
-            <h3>Google Drive dal selettore dei file</h3>
-            <p>I file di Drive si scelgono come quelli del telefono e si aprono dentro l'app. GesTeach non chiede più l'accesso al tuo Drive.</p>
-          </li>
-          <li class="post" data-reveal>
-            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="img/icons.svg#i-spark"/></svg><span class="post__version">1.9.0</span></div>
-            <p class="post__meta"><span>Abbonamento</span><span>30 settembre 2026</span></p>
-            <h3>Piano mensile o annuale, con prova gratuita</h3>
-            <p>Il menu dei piani, con 14 giorni di prova. La pagina Account resta sempre raggiungibile, per esportare i dati o uscire.</p>
-          </li>
-          <li class="post" data-reveal>
-            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="img/icons.svg#i-register"/></svg><span class="post__version">1.8.3</span></div>
-            <p class="post__meta"><span>Registro e programmazione</span><span>29 settembre 2026</span></p>
-            <h3>Moduli in ordine di data, alunni a portata di dito</h3>
-            <p>I moduli seguono la data di inizio, la copia di una programmazione porta con sé i materiali e un alunno si rinomina tenendo premuta la sua scheda.</p>
-          </li>
-        </ul>
-      </div>
     </section>
 
     <section class="section" id="chi-siamo" aria-labelledby="chi-siamo-title">
@@ -415,19 +133,9 @@
         </ul>
       </div>
     </section>
-
-    <nav class="float-nav" aria-label="Sezioni della pagina">
-      <ul>
-        <li><a href="#funzioni">Funzioni</a></li>
-        <li><a href="#perche">Perché</a></li>
-        <li><a href="#prezzi">Prezzi</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#novita">Novità</a></li>
-      </ul>
-    </nav>
   </main>
   <!-- @footer -->
-  <footer class="site-footer">
+  <footer class="site-footer site-footer--slim">
     <section class="cta" aria-labelledby="cta-title">
       <div class="cta__box" data-reveal>
         <h2 class="cta__title" id="cta-title">Un'idea, una domanda? <span class="grad">Scriviamoci.</span></h2>
@@ -436,46 +144,7 @@
         <p class="cta__mail">am.projects.team@gmail.com</p>
       </div>
     </section>
-    <div class="footer-main wrap">
-      <div class="footer-about">
-        <a class="footer-brand" href="index.html"><img src="img/logo-am.png" alt="" width="38" height="38">AM Studio</a>
-        <p>Progettiamo e sviluppiamo app. La prima è GesTeach, per chi insegna.</p>
-        <p class="footer-head">Social</p>
-        <ul class="socials">
-          <li><a href="https://github.com/amprojectsteam" aria-label="AM Studio su GitHub"><svg viewBox="0 0 16 16" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></li>
-        </ul>
-      </div>
-        <nav class="footer-col" aria-labelledby="f-projects">
-          <p class="footer-head" id="f-projects">Progetti</p>
-          <ul>
-            <li><a href="gesteach.html">GesTeach</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="f-explore">
-          <p class="footer-head" id="f-explore">Esplora</p>
-          <ul>
-            <li><a href="#funzioni">Funzioni</a></li>
-            <li><a href="#prezzi">Prezzi</a></li>
-            <li><a href="#novita">Novità</a></li>
-            <li><a href="#chi-siamo">Chi siamo</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-labelledby="f-legal">
-          <p class="footer-head" id="f-legal">Note legali</p>
-          <ul>
-            <li><a href="privacy-sito.html">Privacy e cookie del sito</a></li>
-            <li><a href="privacy.html">Privacy di GesTeach</a></li>
-            <li><a href="termini.html">Termini di GesTeach</a></li>
-            <li><a href="elimina-account.html">Eliminare l'account GesTeach</a></li>
-          </ul>
-        </nav>
-    </div>
-    <div class="wordmark" aria-hidden="true">
-      <div class="wordmark__haze wordmark__haze--far"></div>
-      <div class="wordmark__haze"></div>
-      <p class="wordmark__text">AM Studio</p>
-    </div>
-    <p class="footer-bottom">© 2026 AM Studio</p>
+    <p class="footer-bottom">© 2026 AM Studio<span aria-hidden="true"> · </span><a href="privacy-sito.html">Privacy</a><span aria-hidden="true"> · </span><a href="https://github.com/amprojectsteam">GitHub</a></p>
   </footer>
   <!-- /@footer -->
 </body>

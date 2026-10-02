@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="../style.css">
   <!-- /@head -->
   <script>document.documentElement.classList.add("js")</script>
+  <script src="../vt.js"></script>
   <script src="../vendor/gsap.min.js" defer></script>
   <script src="../vendor/ScrollTrigger.min.js" defer></script>
   <script src="../vendor/SplitText.min.js" defer></script>
@@ -45,9 +46,7 @@
       <div class="nav__menu" id="menu" popover>
         <button class="nav__close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-close"/></svg></button>
         <ul class="nav__links">
-          <li><a href="gesteach.html" aria-current="page">GesTeach</a></li>
-          <li><a href="index.html#prezzi">Pricing</a></li>
-          <li><a href="index.html#novita">News</a></li>
+          <li><a href="index.html#progetti">Projects</a></li>
           <li><a href="index.html#chi-siamo">About us</a></li>
         </ul>
         <div class="nav__actions">
@@ -69,6 +68,7 @@
   <main id="main">
     <section class="page-hero" aria-labelledby="gt-title">
       <div class="arcs arcs--high" aria-hidden="true"></div>
+      <a class="back" href="index.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-arrow"/></svg>All projects</a>
       <img class="app-mark" src="../icon.webp" alt="" width="84" height="84">
       <p class="tag"><span class="tag__label">GesTeach</span> A project by AM Studio</p>
       <h1 id="gt-title">The app for teachers, <span class="grad">class by class</span></h1>
@@ -78,6 +78,139 @@
         <li><a href="terms.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-register"/></svg>Terms of Service</a></li>
         <li><a href="delete-account.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cross"/></svg>Deleting your account</a></li>
       </ul>
+    </section>
+
+    <section class="showcase" aria-label="The four sections of GesTeach">
+      <ul class="showcase__list">
+        <li class="showcase__item"><img src="../img/gt-programma-320.webp" srcset="../img/gt-programma-320.webp 320w, ../img/gt-programma-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="GesTeach's Programming screen, in Italian: the Genetics module, in progress, with three scheduled assessments."></li>
+        <li class="showcase__item"><img src="../img/gt-diario-320.webp" srcset="../img/gt-diario-320.webp 320w, ../img/gt-diario-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="An illustration of GesTeach's Diary screen, in Italian, redrawn rather than captured: three September lessons with their module and hours."></li>
+        <li class="showcase__item"><img src="../img/gt-registro-320.webp" srcset="../img/gt-registro-320.webp 320w, ../img/gt-registro-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="GesTeach's Registry screen, in Italian: the cards of class 3A's pupils, each with its average."></li>
+        <li class="showcase__item"><img src="../img/gt-materiali-320.webp" srcset="../img/gt-materiali-320.webp 320w, ../img/gt-materiali-640.webp 640w" sizes="(min-width: 1180px) 270px, (min-width: 720px) 22vw, 45vw" width="320" height="504" alt="A PDF of slides open inside GesTeach."></li>
+      </ul>
+    </section>
+
+    <section class="strip" aria-labelledby="strip-title">
+      <div class="arcs arcs--low" aria-hidden="true"></div>
+      <h2 id="strip-title" class="strip__title">No cookies and no trackers, not even on these pages</h2>
+      <div class="strip__track">
+        <ul class="strip__list">
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-offline"/></svg>Works offline</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-device"/></svg>Data on your device</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-shield"/></svg>No trackers</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cloud-lock"/></svg>Encrypted backup</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-no-ads"/></svg>No advertising</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-lock"/></svg>App lock</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-globe"/></svg>Italian and English</li>
+        </ul>
+        <ul class="strip__list" aria-hidden="true">
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-offline"/></svg>Works offline</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-device"/></svg>Data on your device</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-shield"/></svg>No trackers</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-cloud-lock"/></svg>Encrypted backup</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-no-ads"/></svg>No advertising</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-lock"/></svg>App lock</li>
+          <li><svg class="ico" focusable="false"><use href="../img/icons.svg#i-globe"/></svg>Italian and English</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="funzioni" aria-labelledby="funzioni-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">Features</span> One class, four sections</p>
+          <h2 id="funzioni-title">Everything a class needs, even without a network</h2>
+          <p class="lede">Each class's planning, lesson diary, register and materials in one Android app, for phone and tablet.</p>
+        </div>
+        <ul class="bento">
+          <li class="card" data-reveal>
+            <div class="art art--orbit" aria-hidden="true">
+              <span class="ring-icon ring-icon--core"><svg class="ico"><use href="../img/icons.svg#i-book"/></svg></span>
+              <span class="ring-icon ring-icon--sat" style="--a:-90deg"><svg class="ico"><use href="../img/icons.svg#i-list"/></svg></span>
+              <span class="ring-icon ring-icon--sat" style="--a:-18deg"><svg class="ico"><use href="../img/icons.svg#i-test"/></svg></span>
+              <span class="ring-icon ring-icon--sat" style="--a:54deg"><svg class="ico"><use href="../img/icons.svg#i-chart"/></svg></span>
+              <span class="ring-icon ring-icon--sat" style="--a:126deg"><svg class="ico"><use href="../img/icons.svg#i-copy"/></svg></span>
+              <span class="ring-icon ring-icon--sat" style="--a:198deg"><svg class="ico"><use href="../img/icons.svg#i-clock"/></svg></span>
+            </div>
+            <div>
+              <h3>Programming</h3>
+              <p>Modules and topics, with the scheduled assessments inside each module. The hours update themselves from the lessons in the diary.</p>
+            </div>
+          </li>
+          <li class="card" data-reveal>
+            <div class="art" aria-hidden="true">
+              <div class="gauge">
+                <svg viewBox="0 0 240 132">
+                  <defs><linearGradient id="gauge-fill" x1="0" x2="1"><stop offset="0" stop-color="#6d5cd8"/><stop offset="1" stop-color="#b7a2fc"/></linearGradient></defs>
+                  <path d="M24 120a96 96 0 0 1 192 0" fill="none" stroke="rgb(255 255 255 / .08)" stroke-width="22"/>
+                  <path d="M24 120a96 96 0 0 1 192 0" fill="none" stroke="url(#gauge-fill)" stroke-width="22" pathLength="100" stroke-dasharray="75 100"/>
+                  <g class="gauge__needle" style="transform-origin:120px 120px;rotate:45deg">
+                    <path d="M120 120V44" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                  </g>
+                  <circle cx="120" cy="120" r="11" fill="#16132e" stroke="#b7a2fc" stroke-width="3"/>
+                </svg>
+                <p class="gauge__value">7.5<small>first term average</small></p>
+              </div>
+            </div>
+            <div>
+              <h3>Pupils and grades</h3>
+              <p>Grades, averages by term and observations, pupil by pupil. A grade takes two taps.</p>
+            </div>
+          </li>
+          <li class="card" data-reveal>
+            <div class="art" aria-hidden="true">
+              <div class="cal">
+                <p class="cal__head">October <span>lessons and assessments</span></p>
+                <p class="cal__grid"><span class="d">M</span><span class="d">T</span><span class="d">W</span><span class="d">T</span><span class="d">F</span><span class="d">S</span><span class="d">S</span><span></span><span></span><span></span><span class="l">1</span><span>2</span><span>3</span><span>4</span><span class="l">5</span><span>6</span><span class="l">7</span><span class="l">8</span><span>9</span><span>10</span><span>11</span><span class="l">12</span><span class="e">13</span><span class="t">14</span><span class="l">15</span><span>16</span><span>17</span><span>18</span><span class="l">19</span><span>20</span><span class="l">21</span><span class="l">22</span><span>23</span><span>24</span><span>25</span><span class="l">26</span><span>27</span><span class="t">28</span><span class="l">29</span><span>30</span><span>31</span></p>
+              </div>
+            </div>
+            <div>
+              <h3>Lesson diary</h3>
+              <p>Every lesson with its date, length and module, as a list or on the month's calendar, together with assessments and unexpected events.</p>
+            </div>
+          </li>
+          <li class="card" data-reveal>
+            <div class="art" aria-hidden="true">
+              <div class="win">
+                <div class="win__bar"><i></i><i></i><i></i><span></span></div>
+                <div class="win__body">
+                  <ul class="win__side">
+                    <li class="is-on"><svg class="ico"><use href="../img/icons.svg#i-folder"/></svg>Module 1</li>
+                    <li><svg class="ico"><use href="../img/icons.svg#i-folder"/></svg>Module 2</li>
+                    <li><svg class="ico"><use href="../img/icons.svg#i-folder"/></svg>Module 3</li>
+                  </ul>
+                  <ul class="win__files">
+                    <li><b>PDF</b>Lesson slides</li>
+                    <li><b>Video</b>Lab experiment</li>
+                    <li><b>Link</b>Exercises in Google Docs</li>
+                    <li><b>PDF</b>Marking rubric</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3>Materials</h3>
+              <p>Slides, tests, rubrics, videos and exercises, in one folder per module. PDFs and videos open inside the app.</p>
+            </div>
+          </li>
+          <li class="card" data-reveal>
+            <div class="art art--cloud" aria-hidden="true">
+              <div class="cloud">
+                <svg class="cloud__shape" viewBox="0 0 340 148" preserveAspectRatio="none"><path d="M60 146h220c28 0 50-18 50-42s-20-40-44-42c-6-34-36-58-74-58-30 0-56 16-68 40-8-4-17-6-26-6-30 0-54 22-56 50C40 92 16 104 16 124c0 14 18 22 44 22z" fill="rgb(255 255 255 / .05)" stroke="rgb(255 255 255 / .16)"/></svg>
+                <span><svg class="ico"><use href="../img/icons.svg#i-lock"/></svg>Encrypted backup</span>
+              </div>
+              <ul class="cloud__nodes">
+                <li class="ring-icon"><svg class="ico"><use href="../img/icons.svg#i-device"/></svg></li>
+                <li class="ring-icon"><svg class="ico"><use href="../img/icons.svg#i-key"/></svg></li>
+                <li class="ring-icon"><svg class="ico"><use href="../img/icons.svg#i-tablet"/></svg></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Encrypted backup, if you want it</h3>
+              <p>An optional cloud backup, encrypted on your device with a passphrase before it leaves: only you can open it.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <div class="wrap rows">
@@ -142,6 +275,165 @@
         </div>
       </section>
     </div>
+
+    <section class="section" id="perche" aria-labelledby="perche-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">Why GesTeach</span> Your data stays yours</p>
+          <h2 id="perche-title">Made for school, starting with the data</h2>
+          <p class="lede">Names, grades and observations often belong to minors: GesTeach keeps them on the device and never sends them anywhere in a form someone else could read.</p>
+        </div>
+        <ul class="cards">
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-offline"/></svg></span><h3>Works offline</h3><p>Lessons, grades and materials can be read and written without a network.</p></li>
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-device"/></svg></span><h3>Data stays on the device</h3><p>Classes, pupils and grades never pass through our servers, and nothing is synced.</p></li>
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cloud-lock"/></svg></span><h3>Encrypted backup, if you want it</h3><p>The cloud backup is optional and leaves already encrypted: only you can open it.</p></li>
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-lock"/></svg></span><h3>App lock</h3><p>Fingerprint, face or a code: a tablet left on the desk does not show the register to whoever picks it up.</p></li>
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-download"/></svg></span><h3>Export whenever you like</h3><p>Grades as CSV or as a printable PDF, and your classes in a backup file you keep.</p></li>
+          <li class="card" data-reveal><span class="ring-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-shield"/></svg></span><h3>No trackers</h3><p>No advertising, and no analytics or tracking library inside the app.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="strumenti-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">In GesTeach</span> From the first lesson to the report card</p>
+          <h2 id="strumenti-title">Seventeen tools, one app</h2>
+          <p class="lede">From modules to the proposed mark, from the calendar to reminders, from the app lock to the backup: all in one place, class by class.</p>
+        </div>
+      </div>
+      <div class="apps" data-reveal>
+        <ul class="apps__row">
+          <li data-label="Modules and topics"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-book"/></svg><span class="sr-only">Modules and topics</span></li>
+          <li data-label="Scheduled assessments"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-test"/></svg><span class="sr-only">Scheduled assessments</span></li>
+          <li data-label="Hours per module"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-clock"/></svg><span class="sr-only">Hours per module</span></li>
+          <li data-label="Lesson diary"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-pen"/></svg><span class="sr-only">Lesson diary</span></li>
+          <li data-label="Monthly calendar"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-calendar"/></svg><span class="sr-only">Monthly calendar</span></li>
+          <li data-label="Unexpected events"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-alert"/></svg><span class="sr-only">Unexpected events</span></li>
+          <li data-label="Two-tap grades"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-grade"/></svg><span class="sr-only">Two-tap grades</span></li>
+          <li data-label="Term averages"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-chart"/></svg><span class="sr-only">Term averages</span></li>
+          <li data-label="Observations"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-note"/></svg><span class="sr-only">Observations</span></li>
+          <li data-label="Proposed mark"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-target"/></svg><span class="sr-only">Proposed mark</span></li>
+        </ul>
+        <ul class="apps__row">
+          <li data-label="Folders per module"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-folder"/></svg><span class="sr-only">Folders per module</span></li>
+          <li data-label="PDFs and videos in the app"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-play"/></svg><span class="sr-only">PDFs and videos in the app</span></li>
+          <li data-label="Reminders"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-bell"/></svg><span class="sr-only">Reminders</span></li>
+          <li data-label="App lock"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-lock"/></svg><span class="sr-only">App lock</span></li>
+          <li data-label="Encrypted backup"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cloud-lock"/></svg><span class="sr-only">Encrypted backup</span></li>
+          <li data-label="CSV and PDF export"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-download"/></svg><span class="sr-only">CSV and PDF export</span></li>
+          <li data-label="Italian and English"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-globe"/></svg><span class="sr-only">Italian and English</span></li>
+        </ul>
+        <div class="arcs arcs--low" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section pricing" id="prezzi" aria-labelledby="prezzi-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">Pricing</span> Simple and clear</p>
+          <h2 id="prezzi-title">Every feature, in both plans</h2>
+          <p class="lede">It starts with a 14-day free trial. Then it is up to you: month by month, or a whole year for 30% less.</p>
+        </div>
+        <fieldset class="billing" data-reveal>
+          <legend class="sr-only">How to pay for GesTeach</legend>
+          <input type="radio" name="billing" id="bill-m" checked><label for="bill-m">Monthly</label>
+          <span class="switch" aria-hidden="true"><label class="switch__to-y" for="bill-y"></label><label class="switch__to-m" for="bill-m"></label></span>
+          <input type="radio" name="billing" id="bill-y"><label for="bill-y">Yearly</label>
+          <span class="save">−30%</span>
+        </fieldset>
+        <ul class="plans">
+          <li class="card plan" data-reveal>
+            <svg class="plan__icon" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-spark"/></svg>
+            <h3>Free trial</h3>
+            <p class="plan__for">To see whether it suits you</p>
+            <p class="price">€0 <small>for 14 days</small></p>
+            <a class="btn" href="#funzioni">About GesTeach</a>
+            <p class="plan__none"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cross"/></svg>No advertising</p>
+            <ul class="plan__list">
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Every feature, for 14 days</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Planning, diary, register and materials</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Works without a network</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>After the trial your data can always be exported</li>
+            </ul>
+          </li>
+          <li class="card plan" data-reveal>
+            <svg class="plan__icon" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-book"/></svg>
+            <h3>GesTeach</h3>
+            <p class="plan__for" data-bill="m">Month by month</p>
+            <p class="plan__for" data-bill="y">For the whole school year</p>
+            <p class="price" data-bill="m">€2.99 <small>a month</small></p>
+            <p class="price" data-bill="y">€24.99 <small>a year, about €2.08 a month</small></p>
+            <a class="btn" href="#funzioni">About GesTeach</a>
+            <p class="plan__none"><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-cross"/></svg>No advertising</p>
+            <ul class="plan__list">
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Every feature</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Optional encrypted cloud backup</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>Grades as CSV and PDF</li>
+              <li><svg class="ico" aria-hidden="true" focusable="false"><use href="../img/icons.svg#i-check"/></svg>App lock with fingerprint, face or code</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="pricing__note">Prices valid when GesTeach launches on Google Play.</p>
+      </div>
+    </section>
+
+    <!-- @testimonials -->
+    <!-- /@testimonials -->
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">FAQ</span> Questions and answers</p>
+          <h2 id="faq-title">Frequently asked questions</h2>
+        </div>
+        <div class="card soon" data-reveal>
+          <p class="soon__title">Coming soon</p>
+          <p>In the meantime, for any question <a href="mailto:am.projects.team@gmail.com">write to us</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="novita" aria-labelledby="novita-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="tag"><span class="tag__label">News</span> The latest versions</p>
+          <h2 id="novita-title">What is new in GesTeach</h2>
+          <p class="lede">Small, frequent versions, tried before they go out. Here are the latest.</p>
+        </div>
+        <ul class="posts">
+          <li class="post" data-reveal>
+            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="../img/icons.svg#i-folder"/></svg><span class="post__version">1.9.1</span></div>
+            <p class="post__meta"><span>Materials</span><span>1 October 2026</span></p>
+            <h3>Google Drive from the file picker</h3>
+            <p>Drive files are picked like the ones on your phone and open inside the app. GesTeach no longer asks for access to your Drive.</p>
+          </li>
+          <li class="post" data-reveal>
+            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="../img/icons.svg#i-spark"/></svg><span class="post__version">1.9.0</span></div>
+            <p class="post__meta"><span>Subscription</span><span>30 September 2026</span></p>
+            <h3>Monthly or yearly plan, with a free trial</h3>
+            <p>The plans menu, with a 14-day trial. The Account page is always within reach, to export your data or sign out.</p>
+          </li>
+          <li class="post" data-reveal>
+            <div class="post__media" aria-hidden="true"><svg class="ico"><use href="../img/icons.svg#i-register"/></svg><span class="post__version">1.8.3</span></div>
+            <p class="post__meta"><span>Register and planning</span><span>29 September 2026</span></p>
+            <h3>Modules by date, pupils at your fingertips</h3>
+            <p>Modules follow their start date, copying a plan brings its materials along, and a pupil is renamed by holding their card.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="float-nav" aria-label="Sections of this page">
+      <ul>
+        <li><a href="#funzioni">Features</a></li>
+        <li><a href="#perche">Why</a></li>
+        <li><a href="#prezzi">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#novita">News</a></li>
+      </ul>
+    </nav>
+    <button class="motion-toggle" type="button" hidden data-pause="Stop the motion" data-play="Resume the motion"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg><span>Stop the motion</span></button>
   </main>
   <!-- @footer -->
   <footer class="site-footer">
@@ -171,9 +463,9 @@
         <nav class="footer-col" aria-labelledby="f-explore">
           <p class="footer-head" id="f-explore">Explore</p>
           <ul>
-            <li><a href="index.html#funzioni">Features</a></li>
-            <li><a href="index.html#prezzi">Pricing</a></li>
-            <li><a href="index.html#novita">News</a></li>
+            <li><a href="#funzioni">Features</a></li>
+            <li><a href="#prezzi">Pricing</a></li>
+            <li><a href="#novita">News</a></li>
             <li><a href="index.html#chi-siamo">About us</a></li>
           </ul>
         </nav>

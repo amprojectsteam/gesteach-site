@@ -5,9 +5,11 @@ rewrites what lies between them, leaving the rest of the page as it is:
 
     head          viewport, canonical, hreflang, Open Graph, icons, font, stylesheet
     header        skip link, navigation, language switch, the GesTeach sub-navigation
-    footer        the "write to us" box, footer columns, the wordmark band, legal links
-    orbs          the project spheres around the title of the home
-    testimonials  the quotes of the home; empty, and so absent, while there are none
+    footer        the "write to us" box, then on the home one thin line (privacy, GitHub) and on
+                  every other page the footer columns, the wordmark band and the legal links
+    orbs          the project spheres around the logo of the home; a project with no page yet is
+                  a sphere that answers "we're working on it"
+    testimonials  the quotes of the GesTeach page; empty, and so absent, while there are none
 
 Projects come from projects.json and quotes from testimonials.json, one per line: adding one is
 adding a line there and running this. Run it as well after changing the shell below or the list of
@@ -44,20 +46,20 @@ TEXT = {
     "it": {
         "locale": "it_IT", "skip": "Salta al contenuto", "nav": "Principale",
         "home": "AM Studio, pagina iniziale", "menu": "Apri il menu", "close": "Chiudi il menu",
-        # a link is a page of the site or an anchor of the home
-        "links": [("gesteach.html", "GesTeach"), ("#prezzi", "Prezzi"), ("#novita", "Novità"),
-                  ("#chi-siamo", "Chi siamo")],
+        # a link is a page of the site, maybe with an anchor, or a bare anchor of the home.
+        # No project here: a project opens only from its sphere
+        "links": [("#progetti", "Progetti"), ("#chi-siamo", "Chi siamo")],
         "switch": ("EN", "English", "en"),
         "sub": ["GesTeach", "Privacy", "Termini", "Elimina account"],
-        "orbs": "Progetti di AM Studio",
+        "orbs": "Progetti di AM Studio", "soon": "Ci stiamo lavorando.", "privacy": "Privacy",
         "talk": 'Un\'idea, una domanda? <span class="grad">Scriviamoci.</span>',
         "talk_text": "Per GesTeach, per un progetto nuovo o anche solo per un parere: ti rispondiamo noi, Mirko e Alice.",
         "write": "Scrivici",
         "blurb": "Progettiamo e sviluppiamo app. La prima è GesTeach, per chi insegna.",
         "social": "Social", "github": "AM Studio su GitHub",
         "projects": "Progetti", "explore": "Esplora",
-        "explore_links": [("#funzioni", "Funzioni"), ("#prezzi", "Prezzi"), ("#novita", "Novità"),
-                          ("#chi-siamo", "Chi siamo")],
+        "explore_links": [("gesteach.html#funzioni", "Funzioni"), ("gesteach.html#prezzi", "Prezzi"),
+                          ("gesteach.html#novita", "Novità"), ("#chi-siamo", "Chi siamo")],
         "site_privacy": "Privacy e cookie del sito", "legal": "Note legali",
         "legal_gesteach": ["Privacy di GesTeach", "Termini di GesTeach", "Eliminare l'account GesTeach"],
         "quotes": ("Testimonianze", "Chi la usa", "Le parole di chi insegna con GesTeach"),
@@ -65,19 +67,18 @@ TEXT = {
     "en": {
         "locale": "en_US", "skip": "Skip to content", "nav": "Main",
         "home": "AM Studio, home page", "menu": "Open the menu", "close": "Close the menu",
-        "links": [("gesteach.html", "GesTeach"), ("#prezzi", "Pricing"), ("#novita", "News"),
-                  ("#chi-siamo", "About us")],
+        "links": [("#progetti", "Projects"), ("#chi-siamo", "About us")],
         "switch": ("IT", "Italiano", "it"),
         "sub": ["GesTeach", "Privacy", "Terms", "Delete account"],
-        "orbs": "AM Studio projects",
+        "orbs": "AM Studio projects", "soon": "We're working on it.", "privacy": "Privacy",
         "talk": 'An idea, a question? <span class="grad">Write to us.</span>',
         "talk_text": "About GesTeach, a new project or just for an opinion: Mirko and Alice will answer you themselves.",
         "write": "Write to us",
         "blurb": "We design and build apps. The first is GesTeach, for teachers.",
         "social": "Social", "github": "AM Studio on GitHub",
         "projects": "Projects", "explore": "Explore",
-        "explore_links": [("#funzioni", "Features"), ("#prezzi", "Pricing"), ("#novita", "News"),
-                          ("#chi-siamo", "About us")],
+        "explore_links": [("gesteach.html#funzioni", "Features"), ("gesteach.html#prezzi", "Pricing"),
+                          ("gesteach.html#novita", "News"), ("#chi-siamo", "About us")],
         "site_privacy": "Site privacy and cookies", "legal": "Legal",
         "legal_gesteach": ["GesTeach privacy", "GesTeach terms", "Deleting a GesTeach account"],
         "quotes": ("Testimonials", "Who uses it", "In the words of teachers who use GesTeach"),
@@ -126,17 +127,18 @@ def icon(page, name, cls="ico"):
 
 
 def link(page, lang, target):
-    """A link of the shared navigation: a page of the site, or an anchor of the home."""
-    if target.startswith("#"):
-        home = home_of(lang)
-        return target if page == home else rel(page, home) + target
-    return rel(page, local(target, lang))
+    """A link of the shared navigation: a page of the site, maybe with an anchor; a bare anchor is the home's."""
+    path, _, anchor = target.partition("#")
+    path = local(path, lang) if path else home_of(lang)
+    if anchor and path == page:
+        return "#" + anchor
+    return rel(page, path) + ("#" + anchor if anchor else "")
 
 
 def face(page, project):
     if project["icon"]:
         return f'<img src="{rel(page, project["icon"])}" alt="" width="56" height="56">'
-    return f'<span class="initials" aria-hidden="true">{esc(project["name"][:1])}</span>'
+    return f'<span class="initials" aria-hidden="true">{esc(project.get("mark", project["name"][:1]))}</span>'
 
 
 def head(page, lang, text):
@@ -217,6 +219,26 @@ def header(page, lang):
 
 def footer(page, lang, projects):
     t = TEXT[lang]
+    cta = [
+        '    <section class="cta" aria-labelledby="cta-title">',
+        '      <div class="cta__box" data-reveal>',
+        f'        <h2 class="cta__title" id="cta-title">{t["talk"]}</h2>',
+        f'        <p>{t["talk_text"]}</p>',
+        f'        <a class="btn" href="mailto:{CONTACT}">{icon(page, "mail")}{t["write"]}</a>',
+        f'        <p class="cta__mail">{CONTACT}</p>',
+        '      </div>',
+        '    </section>',
+    ]
+    if page == home_of(lang):
+        # the home is the projects and who we are: the rest of the site is one line under them
+        dot = '<span aria-hidden="true"> · </span>'
+        return "\n".join([
+            '  <footer class="site-footer site-footer--slim">',
+            *cta,
+            f'    <p class="footer-bottom">© 2026 AM Studio{dot}<a href="{rel(page, local("privacy-sito.html", lang))}">'
+            f'{t["privacy"]}</a>{dot}<a href="https://github.com/amprojectsteam">GitHub</a></p>',
+            '  </footer>',
+        ])
     projects_links = [f'<li><a href="{rel(page, local(p["href"], lang))}">{esc(p["name"])}</a></li>'
                       for p in projects if p["href"]]
     explore = [f'<li><a href="{link(page, lang, target)}">{label}</a></li>' for target, label in t["explore_links"]]
@@ -237,14 +259,7 @@ def footer(page, lang, projects):
 
     return "\n".join([
         '  <footer class="site-footer">',
-        '    <section class="cta" aria-labelledby="cta-title">',
-        '      <div class="cta__box" data-reveal>',
-        f'        <h2 class="cta__title" id="cta-title">{t["talk"]}</h2>',
-        f'        <p>{t["talk_text"]}</p>',
-        f'        <a class="btn" href="mailto:{CONTACT}">{icon(page, "mail")}{t["write"]}</a>',
-        f'        <p class="cta__mail">{CONTACT}</p>',
-        '      </div>',
-        '    </section>',
+        *cta,
         '    <div class="footer-main wrap">',
         '      <div class="footer-about">',
         f'        <a class="footer-brand" href="{rel(page, home_of(lang))}"><img src="{rel(page, "img/logo-am.png")}" '
@@ -270,16 +285,20 @@ def footer(page, lang, projects):
 
 
 def orbs(page, lang, projects):
-    out = [f'        <ul class="orbs" aria-label="{TEXT[lang]["orbs"]}">']
+    t = TEXT[lang]
+    out = [f'        <ul class="orbs" aria-label="{t["orbs"]}">']
     for i, p in enumerate(projects):
         angle = (40 + i * 360 / len(projects)) % 360
+        name = p.get("name_en", p["name"]) if lang == "en" else p["name"]
         inner = (f'<span class="orb__haze" aria-hidden="true"></span>'
-                 f'<span class="orb__body">{face(page, p)}<span class="orb__name">{esc(p["name"])}</span></span>'
+                 f'<span class="orb__body">{face(page, p)}<span class="orb__name">{esc(name)}</span></span>'
                  f'<span class="orb__desc">{esc(p["desc_en" if lang == "en" else "desc"])}</span>')
+        # a project with no page yet is still a sphere: a click has it say so (site.js)
         link_ = (f'<a class="orb__link" href="{rel(page, local(p["href"], lang))}">{inner}</a>' if p["href"]
-                 else f'<span class="orb__link">{inner}</span>')
+                 else f'<button class="orb__link" type="button" data-told="{esc(t["soon"])}">{inner}</button>')
         out.append(f'          <li class="orb" style="--a:{angle:g}deg">{link_}</li>')
     out.append('        </ul>')
+    out.append('        <p class="sr-only" role="status" data-orb-status></p>')
     return "\n".join(out)
 
 

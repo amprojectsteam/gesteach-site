@@ -16,7 +16,7 @@
   // not motion, so it is here before the reduced-motion exit; IntersectionObserver, not GSAP
 
   const pill = document.querySelector(".float-nav");
-  const hero = document.querySelector(".hero");
+  const hero = document.querySelector(".hero, .page-hero");
   const footer = document.querySelector(".site-footer");
   if (pill && hero && footer) {
     let pastHero = false, atFooter = false;
@@ -32,6 +32,25 @@
       }
     }, { rootMargin: "-45% 0px -54% 0px" }); // a thin line across the middle of the window
     for (const section of links.keys()) if (section) io.observe(section);
+  }
+
+  /* ---- a sphere whose project has no page yet says so, in its bubble and to a screen reader ---- */
+
+  const status = document.querySelector("[data-orb-status]");
+  for (const soon of document.querySelectorAll(".orb__link[data-told]")) {
+    const desc = soon.querySelector(".orb__desc");
+    const was = desc.textContent;
+    soon.addEventListener("click", () => {
+      desc.textContent = status.textContent = soon.dataset.told;
+      soon.classList.add("is-told");
+    });
+    const back = () => {
+      desc.textContent = was;
+      status.textContent = "";
+      soon.classList.remove("is-told");
+    };
+    soon.addEventListener("pointerleave", back);
+    soon.addEventListener("blur", back);
   }
 
   const g = window.gsap;
@@ -63,7 +82,7 @@
 
   /* ---- titles that compose word by word ---- */
 
-  const title = document.querySelector(".hero__title, .page-hero h1");
+  const title = document.querySelector(".page-hero h1");
   if (title) {
     const split = SplitText.create(title, { type: "words", wordsClass: "w" });
     g.from(split.words, { opacity: 0, y: 34, filter: "blur(6px)", duration: 0.9, ease: "power3.out", stagger: 0.06 });
@@ -82,13 +101,12 @@
     });
   }
 
-  /* ---- project spheres orbiting the title ---- */
+  /* ---- project spheres orbiting the logo, on a phone as well ---- */
 
   const stage = hero && hero.querySelector(".hero__stage");
   const toggle = document.querySelector(".motion-toggle");
-  const orbitWide = matchMedia("(min-width: 768px)");
   let startOrbit = () => {}, stopOrbit = () => {};
-  if (stage && orbitWide.matches) [startOrbit, stopOrbit] = orbit();
+  if (stage) [startOrbit, stopOrbit] = orbit();
 
   function orbit() {
     const bodies = [...stage.querySelectorAll(".orb, .speck")].map((el) => {
@@ -112,6 +130,10 @@
     };
     measure();
     addEventListener("resize", measure);
+    // one frame in place before going live: "is-live" alone stacks every sphere on the logo, and
+    // vt.js may measure one before the first animation frame comes
+    last = performance.now();
+    frame(last);
     hero.classList.add("is-live");
 
     function frame(now) {
@@ -120,8 +142,9 @@
       px += (tx - px) * 0.05;
       py += (ty - py) * 0.05;
       for (const b of bodies) {
-        if (!held.size) b.a += b.w * dt;
-        const z = Math.sin(b.a); // -1 behind the title, 1 in front of it
+        // vt.js: a sphere opening into its page, or a page closing into it, stays where it is
+        if (!held.size && !root.classList.contains("is-zooming")) b.a += b.w * dt;
+        const z = Math.sin(b.a); // -1 behind the logo, 1 in front of it
         const k = (z + 1) / 2;
         const x = Math.cos(b.a) * rx * b.k - px * (12 + 40 * k);
         const y = z * ry * b.k - py * (8 + 24 * k);
@@ -167,17 +190,6 @@
       visible = entry.isIntersecting;
       visible ? start() : stop();
     }).observe(hero);
-    // a window narrowed below the tablet size goes back to the still composition
-    orbitWide.addEventListener("change", (e) => {
-      if (e.matches) return;
-      stop();
-      visible = false;
-      hero.classList.remove("is-live");
-      for (const b of bodies) {
-        b.el.style.transform = b.el.style.zIndex = "";
-        if (b.body) b.body.style.opacity = b.haze.style.opacity = "";
-      }
-    });
     return [start, stop];
   }
 
